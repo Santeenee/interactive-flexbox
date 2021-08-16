@@ -12,7 +12,8 @@ body {
 }
 
 main {
-  margin: 0 1rem 0 1rem;
+  min-height: 90vh;
+  margin: 0 1rem;
 }
 
 .box {
@@ -23,8 +24,8 @@ main {
 h1 {
   text-align: center;
   font-weight: 900;
-  font-size: clamp(1.5rem, 3vw + 1rem, 4rem);
-  padding: 4rem;
+  font-size: clamp(1rem, 6vw + 1rem, 4rem);
+  padding: 4rem 0;
 }
 
 .buttons {
@@ -71,6 +72,17 @@ h1 {
   }
 }
 
-.hello {
-  color: lavender;
+footer {
+  min-height: 10vh;
+  text-align: center;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+
+  a {
+    font-weight: bold;
+  }
 }

@@ -1,22 +1,32 @@
-const flexBox = document.querySelector(".flex-box");
+const buttons = document.querySelectorAll("button");
+const flexBox = document.querySelectorAll(".flex-box");
 
-const btnRow = document.querySelector("#row");
-const btnRowReverse = document.querySelector("#row-reverse");
-const btnColumn = document.querySelector("#column");
-const btnColumnReverse = document.querySelector("#column-reverse");
+const changeFlexboxProperty = (btnId, count, flexProperty) => {
+  flexBox[count].style[flexProperty] = btnId;
+};
 
-btnRow.addEventListener("click", () => {
-  flexBox.style.flexFlow = "row";
-});
+const doSomething = (btnId, btnClass) => {
+  switch (btnClass) {
+    case "flex-direction":
+      changeFlexboxProperty(btnId, 0, "flexFlow");
+      break;
 
-btnRowReverse.addEventListener("click", () => {
-  flexBox.style.flexFlow = "row-reverse";
-});
+    case "justify-content":
+      changeFlexboxProperty(btnId, 1, "justifyContent");
+      break;
 
-btnColumn.addEventListener("click", () => {
-  flexBox.style.flexFlow = "column";
-});
+    case "align-items":
+      changeFlexboxProperty(btnId, 2, "alignItems");
+      break;
 
-btnColumnReverse.addEventListener("click", () => {
-  flexBox.style.flexFlow = "column-reverse";
+    default:
+      alert("this button doesn't have a class...");
+      break;
+  }
+};
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    doSomething(btn.id, btn.className);
+  });
 });

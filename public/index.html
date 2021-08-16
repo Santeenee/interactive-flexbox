@@ -14,15 +14,64 @@
     <main>
       <h1>Flexbox</h1>
 
+      <!-- Flex DIRECTION -->
       <div class="box">
+        <h2>Flex direction</h2>
         <div class="buttons">
-          <button id="row">row</button>
-          <button id="row-reverse">row-reverse</button>
-          <button id="column">column</button>
-          <button id="column-reverse">column-reverse</button>
+          <button class="flex-direction" id="row">row</button>
+          <button class="flex-direction" id="row-reverse">row-reverse</button>
+          <button class="flex-direction" id="column">column</button>
+          <button class="flex-direction" id="column-reverse">
+            column-reverse
+          </button>
         </div>
 
-        <div class="flex-box">
+        <div class="flex-box flex-box-column">
+          <div class="first">1° element</div>
+          <div class="second">2° element</div>
+          <div class="third">3° element</div>
+        </div>
+      </div>
+
+      <!-- Justify Content -->
+      <div class="box">
+        <h2>Justify Content</h2>
+        <p>[flex-direction is set to <b>row</b>]</p>
+        <div class="buttons">
+          <button class="justify-content" id="center">center</button>
+          <button class="justify-content" id="flex-start">flex-start</button>
+          <button class="justify-content" id="flex-end">flex-end</button>
+          <button class="justify-content" id="space-between">
+            space-between
+          </button>
+          <button class="justify-content" id="space-around">
+            space-around
+          </button>
+          <button class="justify-content" id="space-evenly">
+            space-evenly
+          </button>
+        </div>
+
+        <div class="flex-box flex-box-row flex-box-justify-content">
+          <div class="first">1° element</div>
+          <div class="second">2° element</div>
+          <div class="third">3° element</div>
+        </div>
+      </div>
+
+      <!-- Align Items -->
+      <div class="box">
+        <h2>Align Items</h2>
+        <p>[flex-direction is set to <b>row</b>]</p>
+        <div class="buttons">
+          <button class="align-items" id="center">center</button>
+          <button class="align-items" id="flex-start">flex-start</button>
+          <button class="align-items" id="flex-end">flex-end</button>
+          <button class="align-items" id="baseline">baseline</button>
+          <button class="align-items" id="stretch">stretch</button>
+        </div>
+
+        <div class="flex-box flex-box-row flex-box-align-items">
           <div class="first">1° element</div>
           <div class="second">2° element</div>
           <div class="third">3° element</div>

@@ -11,6 +11,11 @@ main {
   margin: 0 1rem 0 1rem;
 }
 
+.box {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 h1 {
   text-align: center;
   font-weight: 900;
@@ -54,10 +59,10 @@ h1 {
     background: hsl(0 100% 50% / 0.7);
   }
   .second {
-    background: hsl(120 100% 50% / 0.7);
+    background: hsl(20 100% 50% / 0.7);
   }
   .third {
-    background: hsl(250 100% 50% / 0.7);
+    background: hsl(40 100% 50% / 0.7);
   }
 }
 

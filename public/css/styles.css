@@ -7,6 +7,10 @@
   font-family: sans-serif;
 }
 
+body {
+  min-height: 100vh;
+}
+
 main {
   margin: 0 1rem 0 1rem;
 }
@@ -19,7 +23,7 @@ main {
 h1 {
   text-align: center;
   font-weight: 900;
-  font-size: 7rem;
+  font-size: clamp(1.5rem, 3vw + 1rem, 4rem);
   padding: 4rem;
 }
 
@@ -32,9 +36,9 @@ h1 {
 }
 .buttons button {
   min-width: 7.3rem;
-  min-height: 3rem;
+  min-height: 2.5rem;
   font-size: 1rem;
-  margin: 0 1rem 0 1rem;
+  margin: 0 1rem 1rem 1rem;
   cursor: pointer;
 }
 
@@ -45,6 +49,7 @@ h1 {
   align-items: stretch;
   box-shadow: 5px 5px 0 0 black, 10px 10px 0 0 grey;
   min-height: 15rem;
+  margin-bottom: 1rem;
 }
 .flex-box div {
   flex: 1 1 0;

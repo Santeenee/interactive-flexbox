@@ -24,14 +24,13 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
-
-  button {
-    min-width: 7.3rem;
-    min-height: 3rem;
-    font-size: 1rem;
-    margin: 0 1rem 0 1rem;
-    cursor: pointer;
-  }
+}
+.buttons button {
+  min-width: 7.3rem;
+  min-height: 3rem;
+  font-size: 1rem;
+  margin: 0 1rem 0 1rem;
+  cursor: pointer;
 }
 
 .flex-box {
@@ -39,26 +38,23 @@ h1 {
   flex-flow: column;
   justify-content: stretch;
   align-items: stretch;
-
   box-shadow: 5px 5px 0 0 black, 10px 10px 0 0 grey;
   min-height: 15rem;
-
-  div {
-    flex: 1 1 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .first {
-    background: hsl(0 100% 50% / 0.7);
-  }
-  .second {
-    background: hsl(120 100% 50% / 0.7);
-  }
-  .third {
-    background: hsl(250 100% 50% / 0.7);
-  }
+}
+.flex-box div {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-box .first {
+  background: rgba(255, 0, 0, 0.7);
+}
+.flex-box .second {
+  background: rgba(0, 255, 0, 0.7);
+}
+.flex-box .third {
+  background: rgba(43, 0, 255, 0.7);
 }
 
 .hello {

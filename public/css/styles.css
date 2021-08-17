@@ -45,6 +45,7 @@ h1 {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 .buttons button {
@@ -54,11 +55,9 @@ h1 {
   min-width: 7.3rem;
   min-height: 2.5rem;
   font-size: 1rem;
-  margin: 1rem;
   cursor: pointer;
 }
 .buttons button:hover, .buttons button:focus {
-  /*background: hsl(90, 100%, 70%);*/
   border: 2px solid #336600;
 }
 .buttons button:active {
@@ -101,6 +100,13 @@ h1 {
 .flex-box-row div {
   height: 5rem;
   min-width: 7rem;
+}
+
+@media (max-width: 26rem) {
+  .flex-box-justify-content div {
+    min-width: 4rem;
+    height: 4rem;
+  }
 }
 
 .flex-box-align-items {

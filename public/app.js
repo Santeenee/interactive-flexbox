@@ -19,6 +19,14 @@ const doSomething = (btnId, btnClass) => {
       changeFlexboxProperty(btnId, 2, "alignItems");
       break;
 
+    case "combine-justify":
+      changeFlexboxProperty(btnId, 3, "justifyContent");
+      break;
+
+    case "combine-align":
+      changeFlexboxProperty(btnId, 3, "alignItems");
+      break;
+
     default:
       alert("this button doesn't have a class...");
       break;

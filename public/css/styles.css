@@ -27,6 +27,11 @@ h1 {
   padding: 4rem 0;
 }
 
+h4 {
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid grey;
+}
+
 .box {
   max-width: 800px;
   margin: 0 auto;
@@ -98,23 +103,22 @@ h1 {
   align-items: center;
 }
 .flex-box-row div {
-  height: 5rem;
+  min-height: 5rem;
   min-width: 7rem;
 }
-
 @media (max-width: 26rem) {
-  .flex-box-justify-content div {
+  .flex-box-row div {
     min-width: 4rem;
-    height: 4rem;
+    min-height: 4rem;
   }
 }
 
 .flex-box-align-items {
   align-items: stretch;
 }
-.flex-box-align-items div {
-  height: unset;
-  min-height: 5rem;
+
+.flex-box-combine {
+  align-items: center;
 }
 
 footer {

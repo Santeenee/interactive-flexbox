@@ -7,6 +7,10 @@
   font-family: sans-serif;
 }
 
+:focus {
+  outline: none;
+}
+
 body {
   min-height: 100vh;
 }
@@ -44,11 +48,24 @@ h1 {
   margin-bottom: 1rem;
 
   button {
+    background: hsl(90, 100%, 50%);
+    border: none;
+    border-radius: unset;
+
     min-width: 7.3rem;
     min-height: 2.5rem;
     font-size: 1rem;
-    margin: 0 1rem 1rem 1rem;
+    margin: 1rem;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      /*background: hsl(90, 100%, 70%);*/
+      border: 2px solid hsl(90, 100%, 20%);
+    }
+    &:active {
+      transform: translate(0, 3px);
+    }
   }
 }
 
@@ -111,6 +128,12 @@ footer {
   flex-flow: column nowrap;
 
   a {
+    text-decoration: underline;
     font-weight: bold;
+    padding: 0.3rem;
+  }
+  a:focus,
+  a:hover {
+    border: 2px solid black;
   }
 }

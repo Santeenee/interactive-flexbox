@@ -7,6 +7,10 @@
   font-family: sans-serif;
 }
 
+:focus {
+  outline: none;
+}
+
 body {
   min-height: 100vh;
 }
@@ -44,11 +48,21 @@ h1 {
   margin-bottom: 1rem;
 }
 .buttons button {
+  background: #80ff00;
+  border: none;
+  border-radius: unset;
   min-width: 7.3rem;
   min-height: 2.5rem;
   font-size: 1rem;
-  margin: 0 1rem 1rem 1rem;
+  margin: 1rem;
   cursor: pointer;
+}
+.buttons button:hover, .buttons button:focus {
+  /*background: hsl(90, 100%, 70%);*/
+  border: 2px solid #336600;
+}
+.buttons button:active {
+  transform: translate(0, 3px);
 }
 
 .flex-box {
@@ -107,5 +121,11 @@ footer {
   flex-flow: column nowrap;
 }
 footer a {
+  text-decoration: underline;
   font-weight: bold;
+  padding: 0.3rem;
+}
+footer a:focus,
+footer a:hover {
+  border: 2px solid black;
 }

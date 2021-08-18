@@ -172,7 +172,12 @@ section {
   font-size: 1rem;
   padding: 0.3rem 0.5rem;
   border-radius: 0 0 0.3rem 0.3rem;
+  max-width: 86px;
   border: 2px solid #616161;
+}
+.container-input input[type=number]::-webkit-inner-spin-button,
+.container-input input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
 }
 .container-input > div {
   margin-bottom: 1rem;

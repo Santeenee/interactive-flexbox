@@ -31,7 +31,12 @@
     //
     // or is it?
 
+    max-width: 86px;
     border: 2px solid $gray;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
   }
   & > div {
     margin-bottom: 1rem;

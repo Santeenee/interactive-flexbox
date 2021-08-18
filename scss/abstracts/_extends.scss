@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+%button {
+  color: black;
+  background: $btnDirection;
+  border: none;
+  border-radius: unset;
+
+  min-width: 7.3rem;
+  min-height: 2.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border: 2px solid $gray;
+    transition: none;
+  }
+  &:active {
+    transform: translate(0, 3px);
+  }
+}

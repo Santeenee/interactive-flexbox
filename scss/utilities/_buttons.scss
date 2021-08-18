@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/extends" as *;
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  button {
+    @extend %button;
+  }
+  .combine-justify,
+  .justify-content {
+    background: $btnJustify;
+  }
+  .combine-align,
+  .align-items {
+    background: $btnAlign;
+  }
+  .flex-direction {
+    background: $btnDirection;
+  }
+}

@@ -9,7 +9,7 @@
       content="A simple website that help you understand basic Flexbox properties"
     />
 
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <script defer src="app.js"></script>
 
     <title>Interactive Flexbox</title>
@@ -19,7 +19,7 @@
       <h1>Flexbox</h1>
 
       <!-- Flex DIRECTION -->
-      <div class="box">
+      <section>
         <h2>Flex direction</h2>
         <div class="buttons">
           <button type="button" class="flex-direction" id="row">row</button>
@@ -39,10 +39,10 @@
           <div class="second">2° element</div>
           <div class="third">3° element</div>
         </div>
-      </div>
+      </section>
 
       <!-- Justify Content -->
-      <div class="box">
+      <section>
         <h2>Justify Content</h2>
         <p>[flex-direction is set to <b>row</b>]</p>
         <div class="buttons">
@@ -71,10 +71,10 @@
           <div class="second">2°</div>
           <div class="third">3°</div>
         </div>
-      </div>
+      </section>
 
       <!-- Align Items -->
-      <div class="box">
+      <section>
         <h2>Align Items</h2>
         <p>[flex-direction is set to <b>row</b>]</p>
         <div class="buttons">
@@ -98,10 +98,10 @@
           <div class="second">2°</div>
           <div class="third">3°</div>
         </div>
-      </div>
+      </section>
 
       <!-- COMBINING THEM -->
-      <div class="box">
+      <section>
         <h2>Justify Content <br />+ <br />Align Items</h2>
         <p>[flex-direction is set to <b>row</b>]</p>
         <h3>Justify Content</h3>
@@ -149,7 +149,67 @@
           <div class="second">2°</div>
           <div class="third">3°</div>
         </div>
-      </div>
+      </section>
+
+      <!-- Grow, shrink, (basis?) -->
+      <section>
+        <h2>Flex-Grow</h2>
+        <p class="margin-1rem">
+          Each number represents how much the Nth box occupies in the container
+        </p>
+        <h3>Enter positive numbers <u>between 1 and 99</u></h3>
+
+        <div class="container-input">
+          <div>
+            <label class="label1" for="numberGrow1">1° box</label>
+            <input
+              type="number"
+              name="numberGrow1"
+              class="input-number"
+              id="numberGrow1"
+              value="1"
+              min="1"
+              max="99"
+              placeholder="1"
+              required
+            />
+          </div>
+          <div>
+            <label class="label2" for="numberGrow2">2° box</label>
+            <input
+              type="number"
+              name="numberGrow2"
+              class="input-number"
+              id="numberGrow2"
+              value="1"
+              min="1"
+              max="99"
+              placeholder="1"
+              required
+            />
+          </div>
+          <div>
+            <label class="label3" for="numberGrow3">3° box</label>
+            <input
+              type="number"
+              name="numberGrow3"
+              class="input-number"
+              id="numberGrow3"
+              value="1"
+              min="1"
+              max="99"
+              placeholder="1"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="flex-box flex-box-grow">
+          <div class="inner-box first">1°</div>
+          <div class="inner-box second">2°</div>
+          <div class="inner-box third">3°</div>
+        </div>
+      </section>
     </main>
     <footer>
       <a href="http://github.com/Santeenee/interactive-flexbox">GitHub repo</a>

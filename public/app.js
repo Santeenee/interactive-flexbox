@@ -15,7 +15,7 @@ const changeFlexboxProperty = (btnId, count, flexProperty, whatDiv) => {
     for (let i = 0; i < inputs.length; i++) {
       //
       if (inputs[i].value > 99 || inputs[i].value < 1) {
-        console.log(`invalid input[${i}] --> ${inputs[i].value}`);
+        //console.log(`invalid input[${i}] --> ${inputs[i].value}`);
         inputs[i].value = "";
       }
       innerBoxes[i].style.flexGrow = inputs[i].value;

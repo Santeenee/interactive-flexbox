@@ -8,3 +8,4 @@
 - [ ] flex-shrink
 - [ ] flex-basis?
 - [ ] (flex-)gap
+- [ ] align-self?

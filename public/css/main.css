@@ -232,7 +232,7 @@ footer a:hover {
   height: 2em;
   margin-right: -0.5rem;
   background-size: cover;
-  background-image: url(../../assets/content_copy_white_24dp.svg);
+  background-image: url(../../public/assets/content_copy_white_24dp.svg);
 }
 
 .copied {

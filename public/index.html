@@ -1,217 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A simple website that helps you understand basic Flexbox properties"
-    />
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="A simple website that helps you understand basic Flexbox properties"
+		/>
 
-    <link rel="stylesheet" href="css/main.css" />
-    <script defer src="app.js"></script>
+		<link rel="stylesheet" href="css/main.css" />
+		<script defer src="app.js"></script>
 
-    <title>Interactive Flexbox</title>
-  </head>
-  <body>
-    <main>
-      <h1>Flexbox</h1>
+		<title>Interactive Flexbox</title>
+	</head>
+	<body>
+		<main>
+			<h1>Flexbox</h1>
 
-      <p>
-        This website helps you understand flexbox properties better by letting
-        you play around with them!
-      </p>
+			<p>
+				This website helps you understand flexbox properties better by letting
+				you play around with them!
+			</p>
 
-      <!-- Flex DIRECTION -->
-      <section>
-        <h2>Flex direction</h2>
-        <div class="buttons">
-          <button type="button" class="flex-direction" id="row">row</button>
-          <button type="button" class="flex-direction" id="row-reverse">
-            row-reverse
-          </button>
-          <button type="button" class="flex-direction" id="column">
-            column
-          </button>
-          <button type="button" class="flex-direction" id="column-reverse">
-            column-reverse
-          </button>
-        </div>
+			<!-- Flex DIRECTION -->
+			<section>
+				<h2>Flex direction</h2>
+				<div class="buttons">
+					<button type="button" class="flex-direction" id="row">row</button>
+					<button type="button" class="flex-direction" id="row-reverse">
+						row-reverse
+					</button>
+					<button type="button" class="flex-direction" id="column">
+						column
+					</button>
+					<button type="button" class="flex-direction" id="column-reverse">
+						column-reverse
+					</button>
+				</div>
 
-        <div class="flex-box flex-box-column">
-          <div class="first">1° element</div>
-          <div class="second">2° element</div>
-          <div class="third">3° element</div>
-        </div>
-      </section>
+				<div class="flex-box flex-box-column">
+					<div class="first">1° item</div>
+					<div class="second">2° item</div>
+					<div class="third">3° item</div>
+				</div>
+				<div class="code-snippet-container">
+					<div class="code-snippet">flex-direction: column;</div>
+					<span class="copied">Copied!</span>
+				</div>
+			</section>
 
-      <!-- Justify Content -->
-      <section>
-        <h2>Justify Content</h2>
-        <p>[flex-direction is set to <b>row</b>]</p>
-        <div class="buttons">
-          <button type="button" class="justify-content" id="center">
-            center
-          </button>
-          <button type="button" class="justify-content" id="flex-start">
-            flex-start
-          </button>
-          <button type="button" class="justify-content" id="flex-end">
-            flex-end
-          </button>
-          <button type="button" class="justify-content" id="space-between">
-            space-between
-          </button>
-          <button type="button" class="justify-content" id="space-around">
-            space-around
-          </button>
-          <button type="button" class="justify-content" id="space-evenly">
-            space-evenly
-          </button>
-        </div>
+			<!-- Justify Content -->
+			<section>
+				<h2>Justify Content</h2>
+				<p>[flex-direction is set to <b>row</b>]</p>
+				<div class="buttons">
+					<button type="button" class="justify-content" id="center">
+						center
+					</button>
+					<button type="button" class="justify-content" id="flex-start">
+						flex-start
+					</button>
+					<button type="button" class="justify-content" id="flex-end">
+						flex-end
+					</button>
+					<button type="button" class="justify-content" id="space-between">
+						space-between
+					</button>
+					<button type="button" class="justify-content" id="space-around">
+						space-around
+					</button>
+					<button type="button" class="justify-content" id="space-evenly">
+						space-evenly
+					</button>
+				</div>
 
-        <div class="flex-box flex-box-row flex-box-justify-content">
-          <div class="first">1°</div>
-          <div class="second">2°</div>
-          <div class="third">3°</div>
-        </div>
-      </section>
+				<div class="flex-box flex-box-row flex-box-justify-content">
+					<div class="first">1°</div>
+					<div class="second">2°</div>
+					<div class="third">3°</div>
+				</div>
+				<div class="code-snippet-container">
+					<div class="code-snippet">justify-content: space-evenly;</div>
+					<span class="copied">Copied!</span>
+				</div>
+			</section>
 
-      <!-- Align Items -->
-      <section>
-        <h2>Align Items</h2>
-        <p>[flex-direction is set to <b>row</b>]</p>
-        <div class="buttons">
-          <button type="button" class="align-items" id="center">center</button>
-          <button type="button" class="align-items" id="flex-start">
-            flex-start
-          </button>
-          <button type="button" class="align-items" id="flex-end">
-            flex-end
-          </button>
-          <button type="button" class="align-items" id="stretch">
-            stretch
-          </button>
-        </div>
+			<!-- Align Items -->
+			<section>
+				<h2>Align Items</h2>
+				<p>[flex-direction is set to <b>row</b>]</p>
+				<div class="buttons">
+					<button type="button" class="align-items" id="center">center</button>
+					<button type="button" class="align-items" id="flex-start">
+						flex-start
+					</button>
+					<button type="button" class="align-items" id="flex-end">
+						flex-end
+					</button>
+					<button type="button" class="align-items" id="stretch">
+						stretch
+					</button>
+				</div>
 
-        <div class="flex-box flex-box-row flex-box-align-items">
-          <div class="first">1°</div>
-          <div class="second">2°</div>
-          <div class="third">3°</div>
-        </div>
-      </section>
+				<div class="flex-box flex-box-row flex-box-align-items">
+					<div class="first">1°</div>
+					<div class="second">2°</div>
+					<div class="third">3°</div>
+				</div>
+				<div class="code-snippet-container">
+					<div class="code-snippet">align-items: stretch;</div>
+					<span class="copied">Copied!</span>
+				</div>
+			</section>
 
-      <!-- COMBINING THEM -->
-      <section>
-        <h2>Justify Content <br />+ <br />Align Items</h2>
-        <p>[flex-direction is set to <b>row</b>]</p>
-        <h3>Justify Content</h3>
-        <div class="buttons">
-          <button type="button" class="combine-justify" id="center">
-            center
-          </button>
-          <button type="button" class="combine-justify" id="flex-start">
-            flex-start
-          </button>
-          <button type="button" class="combine-justify" id="flex-end">
-            flex-end
-          </button>
-          <button type="button" class="combine-justify" id="space-between">
-            space-between
-          </button>
-          <button class="combine-justify" id="space-around">
-            space-around
-          </button>
-          <button class="combine-justify" id="space-evenly">
-            space-evenly
-          </button>
-        </div>
-        <h3>Align Items</h3>
-        <div class="buttons">
-          <button type="button" class="combine-align" id="center">
-            center
-          </button>
-          <button type="button" class="combine-align" id="flex-start">
-            flex-start
-          </button>
-          <button type="button" class="combine-align" id="flex-end">
-            flex-end
-          </button>
-          <button type="button" class="combine-align" id="stretch">
-            stretch
-          </button>
-        </div>
+			<!-- COMBINING THEM -->
+			<section>
+				<h2>Justify Content <br />+ <br />Align Items</h2>
+				<p>[flex-direction is set to <b>row</b>]</p>
+				<h3>Justify Content</h3>
+				<div class="buttons">
+					<button type="button" class="combine-justify" id="center">
+						center
+					</button>
+					<button type="button" class="combine-justify" id="flex-start">
+						flex-start
+					</button>
+					<button type="button" class="combine-justify" id="flex-end">
+						flex-end
+					</button>
+					<button type="button" class="combine-justify" id="space-between">
+						space-between
+					</button>
+					<button class="combine-justify" id="space-around">
+						space-around
+					</button>
+					<button class="combine-justify" id="space-evenly">
+						space-evenly
+					</button>
+				</div>
+				<h3>Align Items</h3>
+				<div class="buttons">
+					<button type="button" class="combine-align" id="center">
+						center
+					</button>
+					<button type="button" class="combine-align" id="flex-start">
+						flex-start
+					</button>
+					<button type="button" class="combine-align" id="flex-end">
+						flex-end
+					</button>
+					<button type="button" class="combine-align" id="stretch">
+						stretch
+					</button>
+				</div>
 
-        <div class="flex-box flex-box-row flex-box-combine">
-          <div class="first">1°</div>
-          <div class="second">2°</div>
-          <div class="third">3°</div>
-        </div>
-      </section>
+				<div class="flex-box flex-box-row flex-box-combine">
+					<div class="first">1°</div>
+					<div class="second">2°</div>
+					<div class="third">3°</div>
+				</div>
+			</section>
 
-      <!-- Grow, shrink, (basis?) -->
-      <section>
-        <h2>Flex-Grow</h2>
-        <p class="margin-1rem">
-          Each number represents how much the Nth box occupies in the container
-        </p>
-        <h3>Enter positive numbers <u>between 1 and 99</u></h3>
+			<!-- Grow, shrink, (basis?) -->
+			<section>
+				<h2>Flex-Grow</h2>
+				<p class="margin-1rem">
+					Each number represents how much the Nth box occupies in the container
+				</p>
+				<h3>Enter positive numbers <u>between 1 and 99</u></h3>
 
-        <div class="container-input">
-          <div>
-            <label class="label1" for="numberGrow1">1° box</label>
-            <input
-              type="number"
-              name="numberGrow1"
-              class="input-number"
-              id="numberGrow1"
-              value="1"
-              min="1"
-              max="99"
-              placeholder="1"
-              required
-            />
-          </div>
-          <div>
-            <label class="label2" for="numberGrow2">2° box</label>
-            <input
-              type="number"
-              name="numberGrow2"
-              class="input-number"
-              id="numberGrow2"
-              value="1"
-              min="1"
-              max="99"
-              placeholder="1"
-              required
-            />
-          </div>
-          <div>
-            <label class="label3" for="numberGrow3">3° box</label>
-            <input
-              type="number"
-              name="numberGrow3"
-              class="input-number"
-              id="numberGrow3"
-              value="1"
-              min="1"
-              max="99"
-              placeholder="1"
-              required
-            />
-          </div>
-        </div>
+				<div class="container-input">
+					<div>
+						<label class="label1" for="numberGrow1">1° box</label>
+						<input
+							type="number"
+							name="numberGrow1"
+							class="input-number"
+							id="numberGrow1"
+							value="1"
+							min="1"
+							max="99"
+							placeholder="1"
+							required
+						/>
+					</div>
+					<div>
+						<label class="label2" for="numberGrow2">2° box</label>
+						<input
+							type="number"
+							name="numberGrow2"
+							class="input-number"
+							id="numberGrow2"
+							value="1"
+							min="1"
+							max="99"
+							placeholder="1"
+							required
+						/>
+					</div>
+					<div>
+						<label class="label3" for="numberGrow3">3° box</label>
+						<input
+							type="number"
+							name="numberGrow3"
+							class="input-number"
+							id="numberGrow3"
+							value="1"
+							min="1"
+							max="99"
+							placeholder="1"
+							required
+						/>
+					</div>
+				</div>
 
-        <div class="flex-box flex-box-grow">
-          <div class="inner-box first">1°</div>
-          <div class="inner-box second">2°</div>
-          <div class="inner-box third">3°</div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <a href="http://github.com/Santeenee/interactive-flexbox">GitHub repo</a>
-    </footer>
-  </body>
+				<div class="flex-box flex-box-grow">
+					<div class="inner-box first">1°</div>
+					<div class="inner-box second">2°</div>
+					<div class="inner-box third">3°</div>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<a href="http://github.com/Santeenee/interactive-flexbox">GitHub repo</a>
+		</footer>
+	</body>
 </html>

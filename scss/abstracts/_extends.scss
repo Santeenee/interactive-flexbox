@@ -1,22 +1,26 @@
 @use 'variables' as *;
 
 %button {
-  color: black;
-  background: $btnDirection;
-  border: none;
-  border-radius: unset;
+	color: black;
+	background: $btnDirection;
+	border: none;
+	border-radius: unset;
 
-  min-width: 7.3rem;
-  min-height: 2.5rem;
-  font-size: 1rem;
-  cursor: pointer;
+	min-width: 7.4rem;
+	min-height: 2.5rem;
+	font-size: 1rem;
 
-  &:hover,
-  &:focus {
-    border: 2px solid $gray;
-    transition: none;
-  }
-  &:active {
-    transform: translate(0, 3px);
-  }
+	cursor: pointer;
+
+	//vendor prefixes handled by Live Sass Compiler
+	user-select: none;
+
+	&:hover,
+	&:focus {
+		border: 2px solid $gray;
+		transition: none;
+	}
+	&:active {
+		transform: translate(0, 3px);
+	}
 }

@@ -1,0 +1,67 @@
+@use '../abstracts/variables' as *;
+
+.code-snippet-container {
+	position: relative;
+}
+
+.code-snippet {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 1rem;
+
+	padding: 0.7em 1.5em;
+	margin-bottom: 0.4rem;
+	background: hsl(230, 19%, 18%);
+	color: white;
+	box-shadow: 0.25em 0.25em 0 0 hsl(0, 0%, 52%);
+
+	cursor: pointer;
+
+	&::after {
+		content: '';
+		display: inline-block;
+
+		width: 2em;
+		height: 2em;
+
+		margin-right: -0.5rem;
+
+		background-size: cover;
+		background-image: $content-copy-image;
+	}
+}
+
+.copied {
+	position: absolute;
+	inset: 4rem 0 0 0;
+	margin: 0 auto;
+	display: block;
+	opacity: 0;
+
+	padding: 0.3em 0.4em;
+	border-radius: 6px;
+
+	color: green;
+}
+
+.copied.animate {
+	animation: bouncyFadeIn 2.5s linear;
+}
+
+@keyframes bouncyFadeIn {
+	5% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+	9% {
+		transform: scale(1.16);
+	}
+	13% {
+		transform: scale(1.2);
+	}
+	90% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+}

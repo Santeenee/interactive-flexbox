@@ -27,21 +27,31 @@ const animateSpan = i => {
 
 const changeCodeSnippet = (count, btnId, btnClass) => {
 	codeSnippets[count].innerText = `${btnClass}: ${btnId};`
+
+	//Canceling animation when possible
+	if (spanCopied[count].classList.contains('animate')) {
+		spanCopied[count].classList.remove('animate')
+	}
 }
 
-const copyToClipboard = codeSnippet => {
+const copyToClipboard = (codeSnippet, i) => {
 	if (!navigator.clipboard) {
 		// Clipboard API not available
 		codeSnippet.select()
 		document.execCommand('copy')
+		animateSpan(i)
 	} else {
 		navigator.clipboard
 			.writeText(codeSnippet.innerText)
 			.then(() => {
-				console.log('Text copied to clipboard...')
+				console.log(`${codeSnippet.innerText} copied to clipboard!`)
+				animateSpan(i)
 			})
 			.catch(err => {
 				console.log('Something went wrong', err)
+				spanCopied[i].innerText = 'Error'
+				animateSpan(i)
+				spanCopied[i].innerText = 'Copied!'
 			})
 	}
 }
@@ -69,6 +79,7 @@ const chooseWhatToChange = (btnId, btnClass) => {
 	switch (btnClass) {
 		case 'flex-direction':
 			changeFlexboxProperty(btnId, 0, 'flexFlow', 'parent')
+			//(removing animate class when possible in changeCodeSnippet())
 			changeCodeSnippet(0, btnId, btnClass)
 			break
 
@@ -121,11 +132,8 @@ inputs.forEach(input => {
 	})
 })
 
-codeSnippets.forEach(codeSnippet => {})
-
 for (let i = 0; i < codeSnippets.length; i++) {
 	codeSnippets[i].addEventListener('click', () => {
-		copyToClipboard(codeSnippets[i])
-		animateSpan(i)
+		copyToClipboard(codeSnippets[i], i)
 	})
 }

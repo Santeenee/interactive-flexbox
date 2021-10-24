@@ -239,8 +239,6 @@ footer a:hover {
   display: block;
   position: absolute;
   inset: 0.5rem -7rem auto auto;
-  top: 0.5rem;
-  right: -7rem;
   font-size: 1.4em;
   margin: 0 auto;
   padding: 0.3em 0.4em;
@@ -250,10 +248,7 @@ footer a:hover {
 }
 @media (max-width: 40rem) {
   .copied {
-    inset: 4rem 0 0 0;
-    top: 4rem;
-    right: 0;
-    left: 0;
+    inset: auto 0 -3rem 0;
   }
 }
 

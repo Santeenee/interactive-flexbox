@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as *;
+
+::selection {
+	background-color: $btnDirection;
+	color: black;
+}
+
+h1::selection {
+	background-color: unset;
+	text-shadow: 0.2rem 0.2rem $btnDirection;
+}
+
+p::selection,
+b::selection {
+	background-color: $btnDirection;
+	color: black;
+}
+
+// section {
+// 	&::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	h2::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	h3::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	u::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	br::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	label::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	input::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	div::selection {
+// 		background-color: $btnDirection;
+// 	}
+// 	button::selection {
+// 		background-color: $btnDirection;
+// 		color: black;
+// 	}
+// }
+
+.justify-content-section::selection {
+	background-color: red;
+	color: black;
+}
+
+#align-items-section::selection {
+	background-color: red;
+	color: black;
+}
+
+// section.combine-section::selection {
+// 	background-color: $btnJustify;
+// }
+
+// section.flex-grow-section::selection {
+// 	background-color: $btnJustify;
+// }

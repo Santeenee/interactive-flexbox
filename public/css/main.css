@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap");
 *,
 *::after,
 *::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 :focus {
@@ -14,7 +16,6 @@
 body {
   min-height: 100vh;
   text-align: center;
-  font-family: "IBM Plex Sans", sans-serif;
 }
 
 main {
@@ -52,7 +53,7 @@ section {
   font-weight: 500;
 }
 
-.buttons button {
+.buttons button:not(.code-snippet) {
   color: black;
   background: #67e0a1;
   border: none;
@@ -66,11 +67,11 @@ section {
       -ms-user-select: none;
           user-select: none;
 }
-.buttons button:hover, .buttons button:focus {
+.buttons button:hover:not(.code-snippet), .buttons button:focus:not(.code-snippet) {
   border: 2px solid #616161;
   transition: none;
 }
-.buttons button:active {
+.buttons button:active:not(.code-snippet) {
   transform: translate(0, 3px);
 }
 
@@ -141,15 +142,15 @@ section {
   gap: 1rem;
   margin-bottom: 1rem;
 }
-.buttons .combine-justify,
-.buttons .justify-content {
+.buttons button.combine-justify,
+.buttons button.justify-content {
   background: #98ff75;
 }
-.buttons .combine-align,
-.buttons .align-items {
+.buttons button.combine-align,
+.buttons button.align-items {
   background: #67e067;
 }
-.buttons .flex-direction {
+.buttons button.flex-direction {
   background: #67e0a1;
 }
 
@@ -218,7 +219,10 @@ footer a:hover {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.7em 1.5em;
+  font-size: 1em;
+  font-family: "IBM Plex Mono", monospace;
+  border: none;
+  padding: 0.7em 1em 0.7em 1.5em;
   margin-bottom: 0.4rem;
   background: #252837;
   color: white;
@@ -228,11 +232,14 @@ footer a:hover {
 .code-snippet::after {
   content: "";
   display: inline-block;
-  width: 2em;
-  height: 2em;
-  margin-right: -0.5rem;
+  min-width: 2em;
+  min-height: 2em;
   background-size: cover;
   background-image: url(../assets/content_copy_white_24dp.svg);
+}
+.code-snippet:focus, .code-snippet:hover {
+  box-shadow: 0.4em 0.4em 0 0 #858585;
+  outline: 2px solid white;
 }
 
 .copied {
@@ -243,10 +250,10 @@ footer a:hover {
   margin: 0 auto;
   padding: 0.3em 0.4em;
   opacity: 0;
-  border-radius: 6px;
+  border-radius: none;
   color: green;
 }
-@media (max-width: 40rem) {
+@media (max-width: 43rem) {
   .copied {
     inset: auto 0 -3rem 0;
   }

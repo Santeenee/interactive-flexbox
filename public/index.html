@@ -12,6 +12,18 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<script defer src="app.js"></script>
 
+		<!-- ADD FAVICON -->
+		<!--
+			<link rel="icon" href="/favicon.ico" sizes="any" />
+			<!-- 32×32 -->
+		<!--
+			<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+			<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+			<!-- 180×180 -->
+		<!--
+			<link rel="manifest" href="/manifest.webmanifest" />
+		-->
+
 		<title>Interactive Flexbox</title>
 	</head>
 	<body>
@@ -21,6 +33,10 @@
 			<p>
 				This website helps you understand flexbox properties better by letting
 				you play around with them!
+			</p>
+			<p>
+				Use <b>TAB</b> and <b>SHIFT+TAB</b> to navigate through this website,
+				confirm a choice with <b>ENTER</b>
 			</p>
 
 			<!-- Flex DIRECTION -->
@@ -45,13 +61,15 @@
 					<div class="third">3° item</div>
 				</div>
 				<div class="code-snippet-container">
-					<div class="code-snippet">flex-direction: column;</div>
+					<button type="button" class="code-snippet">
+						flex-direction: column;
+					</button>
 					<span class="copied">Copied!</span>
 				</div>
 			</section>
 
 			<!-- Justify Content -->
-			<section>
+			<section class="justify-content-section">
 				<h2>Justify Content</h2>
 				<p>[flex-direction is set to <b>row</b>]</p>
 				<div class="buttons">
@@ -81,13 +99,15 @@
 					<div class="third">3°</div>
 				</div>
 				<div class="code-snippet-container">
-					<div class="code-snippet">justify-content: space-evenly;</div>
+					<button type="button" class="code-snippet">
+						justify-content: space-evenly;
+					</button>
 					<span class="copied">Copied!</span>
 				</div>
 			</section>
 
 			<!-- Align Items -->
-			<section>
+			<section id="align-items-section">
 				<h2>Align Items</h2>
 				<p>[flex-direction is set to <b>row</b>]</p>
 				<div class="buttons">
@@ -109,48 +129,54 @@
 					<div class="third">3°</div>
 				</div>
 				<div class="code-snippet-container">
-					<div class="code-snippet">align-items: stretch;</div>
+					<button type="button" class="code-snippet">
+						align-items: stretch;
+					</button>
 					<span class="copied">Copied!</span>
 				</div>
 			</section>
 
 			<!-- COMBINING THEM -->
-			<section>
+			<section id="combine-section">
 				<h2>Justify Content <br />+ <br />Align Items</h2>
 				<p>[flex-direction is set to <b>row</b>]</p>
 				<h3>Justify Content</h3>
 				<div class="buttons">
-					<button type="button" class="combine-justify" id="center">
+					<button type="button" class="justify-content combine" id="center">
 						center
 					</button>
-					<button type="button" class="combine-justify" id="flex-start">
+					<button type="button" class="justify-content combine" id="flex-start">
 						flex-start
 					</button>
-					<button type="button" class="combine-justify" id="flex-end">
+					<button type="button" class="justify-content combine" id="flex-end">
 						flex-end
 					</button>
-					<button type="button" class="combine-justify" id="space-between">
+					<button
+						type="button"
+						class="justify-content combine"
+						id="space-between"
+					>
 						space-between
 					</button>
-					<button class="combine-justify" id="space-around">
+					<button class="justify-content combine" id="space-around">
 						space-around
 					</button>
-					<button class="combine-justify" id="space-evenly">
+					<button class="justify-content combine" id="space-evenly">
 						space-evenly
 					</button>
 				</div>
 				<h3>Align Items</h3>
 				<div class="buttons">
-					<button type="button" class="combine-align" id="center">
+					<button type="button" class="align-items combine" id="center">
 						center
 					</button>
-					<button type="button" class="combine-align" id="flex-start">
+					<button type="button" class="align-items combine" id="flex-start">
 						flex-start
 					</button>
-					<button type="button" class="combine-align" id="flex-end">
+					<button type="button" class="align-items combine" id="flex-end">
 						flex-end
 					</button>
-					<button type="button" class="combine-align" id="stretch">
+					<button type="button" class="align-items combine" id="stretch">
 						stretch
 					</button>
 				</div>
@@ -160,10 +186,16 @@
 					<div class="second">2°</div>
 					<div class="third">3°</div>
 				</div>
+				<div class="code-snippet-container">
+					<button type="button" class="code-snippet">
+						align-items: center;
+					</button>
+					<span class="copied">Copied!</span>
+				</div>
 			</section>
 
 			<!-- Grow, shrink, (basis?) -->
-			<section>
+			<section id="flex-grow-section">
 				<h2>Flex-Grow</h2>
 				<p class="margin-1rem">
 					Each number represents how much the Nth box occupies in the container
@@ -219,6 +251,12 @@
 					<div class="inner-box first">1°</div>
 					<div class="inner-box second">2°</div>
 					<div class="inner-box third">3°</div>
+				</div>
+				<div class="buttons">
+					<div class="code-snippet-container">
+						<button type="button" class="code-snippet">flex-grow: 1;</button>
+						<span class="copied">Copied!</span>
+					</div>
 				</div>
 			</section>
 		</main>

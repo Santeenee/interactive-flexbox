@@ -10,8 +10,13 @@
 	align-items: center;
 	gap: 1rem;
 
-	padding: 0.7em 1.5em;
+	font-size: 1em;
+	font-family: 'IBM Plex Mono', monospace;
+	border: none;
+
+	padding: 0.7em 1em 0.7em 1.5em;
 	margin-bottom: 0.4rem;
+
 	background: hsl(230, 19%, 18%);
 	color: white;
 	box-shadow: 0.25em 0.25em 0 0 hsl(0, 0%, 52%);
@@ -22,13 +27,18 @@
 		content: '';
 		display: inline-block;
 
-		width: 2em;
-		height: 2em;
-
-		margin-right: -0.5rem;
+		min-width: 2em;
+		min-height: 2em;
 
 		background-size: cover;
 		background-image: $content-copy-image;
+	}
+
+	&:focus,
+	&:hover {
+		box-shadow: 0.4em 0.4em 0 0 hsl(0, 0%, 52%);
+		outline: 2px solid white;
+		//outline-offset: -0.05em;
 	}
 }
 
@@ -43,11 +53,11 @@
 	padding: 0.3em 0.4em;
 
 	opacity: 0;
-	border-radius: 6px;
+	border-radius: none;
 
 	color: green;
 
-	@media (max-width: 40rem) {
+	@media (max-width: 43rem) {
 		inset: auto 0 -3rem 0;
 	}
 }

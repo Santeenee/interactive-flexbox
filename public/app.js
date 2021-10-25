@@ -19,14 +19,26 @@ const spanCopied = document.querySelectorAll('.copied')
 const animateSpan = i => {
 	if (!spanCopied[i].classList.contains('animate')) {
 		spanCopied[i].classList.add('animate')
-		spanCopied[i].addEventListener('animationend', () =>
+		spanCopied[i].addEventListener('animationend', () => {
 			spanCopied[i].classList.remove('animate')
-		)
+			//if an error is thrown reset the innerText to 'Copied!'
+			if (spanCopied[i].innerText.includes('Error')) {
+				console.log('includes "Error"')
+				spanCopied[i].innerText = 'Copied!'
+				spanCopied[i].style.color = 'green'
+			}
+		})
 	}
 }
 
 const changeCodeSnippet = (count, btnId, btnClass) => {
-	codeSnippets[count].innerText = `${btnClass}: ${btnId};`
+	//
+	if (btnClass === 'input-number') {
+		let inputValue = inputs[count].value
+		codeSnippets[4].innerText = `flex-grow: ${inputValue};`
+	} else {
+		codeSnippets[count].innerText = `${btnClass}: ${btnId};`
+	}
 
 	//Canceling animation when possible
 	if (spanCopied[count].classList.contains('animate')) {
@@ -44,14 +56,17 @@ const copyToClipboard = (codeSnippet, i) => {
 		navigator.clipboard
 			.writeText(codeSnippet.innerText)
 			.then(() => {
-				console.log(`${codeSnippet.innerText} copied to clipboard!`)
+				throw new Error()
+				console.log(`[${codeSnippet.innerText}] copied to clipboard!`)
 				animateSpan(i)
 			})
 			.catch(err => {
 				console.log('Something went wrong', err)
+				//spanCopied[i].style.right = '-9.5rem'
+				spanCopied[i].style.backgroundColor = 'hsla(0, 0%, 100%, 50%)'
 				spanCopied[i].innerText = 'Error'
+				spanCopied[i].style.color = 'hsl(0 100% 30%)'
 				animateSpan(i)
-				spanCopied[i].innerText = 'Copied!'
 			})
 	}
 }
@@ -75,38 +90,48 @@ const changeFlexboxProperty = (btnId, count, flexProperty, whatDiv) => {
 	}
 }
 
-const chooseWhatToChange = (btnId, btnClass) => {
-	switch (btnClass) {
+//this also handles input number
+const chooseWhatToChange = btn => {
+	let btnId = btn.id
+	let btnClass = btn.classList
+
+	switch (btnClass[0]) {
 		case 'flex-direction':
 			changeFlexboxProperty(btnId, 0, 'flexFlow', 'parent')
-			//(removing animate class when possible in changeCodeSnippet())
 			changeCodeSnippet(0, btnId, btnClass)
 			break
 
 		case 'justify-content':
-			changeFlexboxProperty(btnId, 1, 'justifyContent', 'parent')
-			changeCodeSnippet(1, btnId, btnClass)
+			if (!btnClass.contains('combine')) {
+				changeFlexboxProperty(btnId, 1, 'justifyContent', 'parent')
+				changeCodeSnippet(1, btnId, btnClass)
+			} else {
+				changeFlexboxProperty(btnId, 3, 'justifyContent', 'parent')
+				changeCodeSnippet(3, btnId, btnClass[0])
+			}
 			break
 
 		case 'align-items':
-			changeFlexboxProperty(btnId, 2, 'alignItems', 'parent')
-			changeCodeSnippet(2, btnId, btnClass)
-			break
-
-		case 'combine-justify':
-			changeFlexboxProperty(btnId, 3, 'justifyContent', 'parent')
-			break
-
-		case 'combine-align':
-			changeFlexboxProperty(btnId, 3, 'alignItems', 'parent')
+			if (!btnClass.contains('combine')) {
+				changeFlexboxProperty(btnId, 2, 'alignItems', 'parent')
+				changeCodeSnippet(2, btnId, btnClass)
+			} else {
+				changeFlexboxProperty(btnId, 3, 'alignItems', 'parent')
+				changeCodeSnippet(3, btnId, btnClass[0])
+			}
 			break
 
 		case 'input-number':
 			changeFlexboxProperty(btnId, 4, 'flexGrow', 'child')
+
+			if (btnId === 'numberGrow1') changeCodeSnippet(0, btnId, btnClass[0])
+			else if (btnId === 'numberGrow2') changeCodeSnippet(1, btnId, btnClass[0])
+			else if (btnId === 'numberGrow3') changeCodeSnippet(2, btnId, btnClass[0])
 			break
 
 		default:
-			//console.log("this button doesn't have the required class...");
+			if (!btnClass.contains('code-snippet'))
+				console.log(`wrong class... ${btnClass}`)
 			break
 	}
 }
@@ -122,13 +147,13 @@ const chooseWhatToChange = (btnId, btnClass) => {
 
 buttons.forEach(btn => {
 	btn.addEventListener('click', () => {
-		chooseWhatToChange(btn.id, btn.className)
+		chooseWhatToChange(btn)
 	})
 })
 
 inputs.forEach(input => {
 	input.addEventListener('input', () => {
-		chooseWhatToChange(input.id, input.className)
+		chooseWhatToChange(input)
 	})
 })
 

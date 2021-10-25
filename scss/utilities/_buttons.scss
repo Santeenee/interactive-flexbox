@@ -1,26 +1,27 @@
-@use "../abstracts/variables" as *;
-@use "../abstracts/extends" as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/extends' as *;
 
 .buttons {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
 
-  button {
-    @extend %button;
-  }
-  .combine-justify,
-  .justify-content {
-    background: $btnJustify;
-  }
-  .combine-align,
-  .align-items {
-    background: $btnAlign;
-  }
-  .flex-direction {
-    background: $btnDirection;
-  }
+	//maledetto ":not()" che aumenti la specifity
+	button:not(.code-snippet) {
+		@extend %button;
+	}
+	button.combine-justify,
+	button.justify-content {
+		background: $btnJustify;
+	}
+	button.combine-align,
+	button.align-items {
+		background: $btnAlign;
+	}
+	button.flex-direction {
+		background: $btnDirection;
+	}
 }

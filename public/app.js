@@ -35,6 +35,9 @@ const changeCodeSnippet = (count, btnId, btnClass) => {
 	//
 	if (btnClass === 'input-number') {
 		let inputValue = inputs[count].value
+		if (inputValue == '') {
+			inputValue = 1
+		}
 		codeSnippets[4].innerText = `flex-grow: ${inputValue};`
 	} else {
 		codeSnippets[count].innerText = `${btnClass}: ${btnId};`

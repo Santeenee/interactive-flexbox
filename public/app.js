@@ -56,7 +56,8 @@ const copyToClipboard = (codeSnippet, i) => {
 		navigator.clipboard
 			.writeText(codeSnippet.innerText)
 			.then(() => {
-				throw new Error()
+				//lol
+				//throw new Error()
 				console.log(`[${codeSnippet.innerText}] copied to clipboard!`)
 				animateSpan(i)
 			})

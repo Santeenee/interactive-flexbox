@@ -27,7 +27,7 @@ const changesPTagBasedOnPlatform = () => {
 			(platform.includes('Mac') || platform.includes('mac'))
 		) {
 			pTagPlatformDependent.innerHTML =
-				'Use <b>TAB</b> and <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+				'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
 		}
 	} else if (navigator.platform !== '') {
 		console.log(`You are using this platform: "${navigator.platform}"`)
@@ -36,7 +36,7 @@ const changesPTagBasedOnPlatform = () => {
 			(navigator.platform.includes('Mac') || navigator.platform.includes('mac'))
 		) {
 			pTagPlatformDependent.innerHTML =
-				'Use <b>TAB</b> and <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+				'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
 		}
 	}
 }

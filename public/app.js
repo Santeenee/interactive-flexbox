@@ -7,6 +7,8 @@ const innerBoxes = document.querySelectorAll('.inner-box')
 
 const spanCopied = document.querySelectorAll('.copied')
 
+const pTagPlatformDependent = document.querySelector('p#platformDependent')
+
 /*
 ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
 ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
@@ -15,6 +17,29 @@ const spanCopied = document.querySelectorAll('.copied')
 ██║     ╚██████╔╝██║ ╚████║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 */
+
+const changesPTagBasedOnPlatform = () => {
+	let platform = navigator.userAgentData.platform
+	if (platform !== '') {
+		console.log(`You are using this platform: "${platform}"`)
+		if (
+			pTagPlatformDependent.innerText.includes('SHIFT') &&
+			platform.includes('Mac')
+		) {
+			pTagPlatformDependent.innerHTML =
+				'Use <b>TAB</b> and <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+		}
+	} else if (navigator.platform !== '') {
+		console.log(`You are using this platform: "${navigator.platform}"`)
+		if (
+			pTagPlatformDependent.innerText.includes('SHIFT') &&
+			navigator.platform.includes('Mac')
+		) {
+			pTagPlatformDependent.innerHTML =
+				'Use <b>TAB</b> and <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+		}
+	}
+}
 
 const animateSpan = i => {
 	if (!spanCopied[i].classList.contains('animate')) {
@@ -174,3 +199,9 @@ for (let i = 0; i < codeSnippets.length; i++) {
 		copyToClipboard(codeSnippets[i], i)
 	})
 }
+
+// -------------
+// function call
+// -------------
+
+changesPTagBasedOnPlatform()

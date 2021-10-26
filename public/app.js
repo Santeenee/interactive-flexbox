@@ -21,13 +21,13 @@ const pTagPlatformDependent = document.querySelector('p#platformDependent')
 const changesPTagBasedOnPlatform = () => {
 	let platform = navigator.userAgentData.platform
 	if (platform !== '') {
-		console.log(`You are using this platform: "${platform}"`)
 		if (
 			pTagPlatformDependent.innerText.includes('SHIFT') &&
 			platform.includes('Mac')
 		) {
 			pTagPlatformDependent.innerHTML =
 				'Use <b>TAB</b> and <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+			pTagPlatformDependent.innerHTML += `<br>You are using this platform: "${platform}"`
 		}
 	} else if (navigator.platform !== '') {
 		console.log(`You are using this platform: "${navigator.platform}"`)
@@ -37,6 +37,7 @@ const changesPTagBasedOnPlatform = () => {
 		) {
 			pTagPlatformDependent.innerHTML =
 				'Use <b>TAB</b> and <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+			pTagPlatformDependent.innerHTML += `<br>You are using this platform: "${navigator.platform}"`
 		}
 	}
 }

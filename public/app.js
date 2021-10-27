@@ -18,25 +18,31 @@ const pTagPlatformDependent = document.querySelector('p#platformDependent')
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 */
 
-const changesPTagBasedOnPlatform = () => {
+const changesPTagForMacOS = () => {
+	//
+	const textForMacOS =
+		'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+	//
 	let platform = navigator.userAgentData.platform
-	if (platform !== '') {
+	//
+	if (platform != '' || platform != undefined) {
+		//
 		console.log(`You are using this platform: "${platform}"`)
+		//
 		if (
 			pTagPlatformDependent.innerText.includes('SHIFT') &&
 			(platform.includes('Mac') || platform.includes('mac'))
 		) {
-			pTagPlatformDependent.innerHTML =
-				'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+			pTagPlatformDependent.innerHTML = textForMacOS
 		}
-	} else if (navigator.platform !== '') {
+	} else if (navigator.platform !== '' || navigator.platform !== undefined) {
+		//
 		console.log(`You are using this platform: "${navigator.platform}"`)
 		if (
 			pTagPlatformDependent.innerText.includes('SHIFT') &&
 			(navigator.platform.includes('Mac') || navigator.platform.includes('mac'))
 		) {
-			pTagPlatformDependent.innerHTML =
-				'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+			pTagPlatformDependent.innerHTML = textForMacOS
 		}
 	}
 }
@@ -204,4 +210,4 @@ for (let i = 0; i < codeSnippets.length; i++) {
 // function call
 // -------------
 
-changesPTagBasedOnPlatform()
+changesPTagForMacOS()

@@ -18,32 +18,45 @@ const pTagPlatformDependent = document.querySelector('p#platformDependent')
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 */
 
-const changesPTagForMacOS = () => {
+const changeParagraphForMacOsUsers = platform => {
+	console.log(`You are using this platform: "${platform}"`)
 	//
-	const textForMacOS =
-		'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+	if (
+		pTagPlatformDependent.innerText.includes('SHIFT') &&
+		platform.toLowerCase().includes('mac')
+	) {
+		pTagPlatformDependent.innerHTML =
+			'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+		//
+	} else if (navigator.userAgentData.mobile) {
+		pTagPlatformDependent.remove() //seems like it works only on google smartphones...
+	}
+}
+
+const checkPlatform = () => {
 	//
-	let platform = navigator.userAgentData.platform
-	//
-	if (platform != '' || platform != undefined) {
+	if (
+		navigator.userAgentData &&
+		navigator.userAgentData.platform != '' &&
+		navigator.userAgentData.platform != undefined
+	) {
 		//
-		console.log(`You are using this platform: "${platform}"`)
+		let platform = navigator.userAgentData.platform
+		changeParagraphForMacOsUsers(platform)
 		//
-		if (
-			pTagPlatformDependent.innerText.includes('SHIFT') &&
-			(platform.includes('Mac') || platform.includes('mac'))
-		) {
-			pTagPlatformDependent.innerHTML = textForMacOS
-		}
-	} else if (navigator.platform !== '' || navigator.platform !== undefined) {
+	} else if (
+		navigator.platform &&
+		navigator.platform != '' &&
+		navigator.platform != undefined
+	) {
 		//
-		console.log(`You are using this platform: "${navigator.platform}"`)
-		if (
-			pTagPlatformDependent.innerText.includes('SHIFT') &&
-			(navigator.platform.includes('Mac') || navigator.platform.includes('mac'))
-		) {
-			pTagPlatformDependent.innerHTML = textForMacOS
-		}
+		let platform = navigator.platform
+		changeParagraphForMacOsUsers(platform)
+		//
+	} else {
+		console.log(
+			'could not retrieve platform name ("Windows/win32","macOS/MacIntel", etc)'
+		)
 	}
 }
 
@@ -210,4 +223,4 @@ for (let i = 0; i < codeSnippets.length; i++) {
 // function call
 // -------------
 
-changesPTagForMacOS()
+checkPlatform()

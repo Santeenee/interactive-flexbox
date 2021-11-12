@@ -28,13 +28,12 @@ const changeParagraphForMacOsUsers = platform => {
 		pTagPlatformDependent.innerHTML =
 			'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
 		//
-	} else if (
-		navigator.userAgentData
-			.mobile /*seems like it works only on some android phones...*/ ||
-		platform.includes('iP')
-	) {
+	} else if (navigator.userAgentData) {
+		if (navigator.userAgentData.mobile /*seems like it works only on some android phones...*/ ||
+			platform.includes('iP')) {
 		//iPhone, iPad
 		pTagPlatformDependent.remove()
+		}
 	}
 }
 

@@ -1,0 +1,38 @@
+.github-corner {
+	--octo-color: hsl(60, 5%, 8%);
+	--border-width: 5em;
+	--some-percent: calc(var(--border-width) * 0.6);
+	--left: calc(var(--border-width) * 0.3);
+	--top: calc(var(--border-width) * -0.28);
+
+	position: absolute;
+	top: calc(-1 * var(--border-width));
+	left: 0;
+
+	width: 0;
+	height: 0;
+
+	border: var(--border-width) solid transparent;
+	border-left-width: 0;
+	border-right: var(--border-width) solid var(--octo-color);
+
+	transform-origin: center left;
+	transform: rotate(45deg);
+}
+
+.github-logo {
+	position: absolute;
+
+	top: var(--top);
+	left: var(--left);
+
+	fill: white;
+
+	border: none;
+	width: var(--some-percent);
+	height: var(--some-percent);
+	aspect-ratio: 1;
+
+	transform: rotate(-90deg);
+	z-index: 3;
+}

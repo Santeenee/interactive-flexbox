@@ -1,21 +1,22 @@
-@use "../abstracts/variables" as *;
+@use '../abstracts/variables' as *;
 
 footer {
-  min-height: 10vh;
-  padding: 1rem;
+	min-height: 10vh;
+	padding: 1rem;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column nowrap;
 
-  a {
-    text-decoration: underline;
-    font-weight: bold;
-    padding: 0.3rem;
-  }
-  a:focus,
-  a:hover {
-    border: 2px solid $gray;
-  }
+	a {
+		text-decoration: underline;
+		font-weight: bold;
+		padding: 0.3rem;
+		border: 2px solid transparent;
+	}
+	a:focus,
+	a:hover {
+		border: 2px solid $gray;
+	}
 }

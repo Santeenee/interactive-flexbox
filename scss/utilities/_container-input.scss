@@ -25,6 +25,7 @@
 	}
 
 	input[type='number'] {
+		text-align: center;
 		font-size: 1rem;
 		padding: 0.3rem 0.5rem;
 		border-radius: 0 0 0.3rem 0.3rem;
@@ -33,12 +34,50 @@
 
 		&::-webkit-inner-spin-button,
 		&::-webkit-outer-spin-button {
-			opacity: 1;
-			cursor: pointer;
+			display: none;
 		}
 	}
 
 	& > div {
 		margin-bottom: 1rem;
+		position: relative;
+
+		.add,
+		.remove {
+			display: inline-block;
+			position: absolute;
+
+			min-width: 1.4em;
+			min-height: 1.35em;
+
+			cursor: pointer;
+
+			// /70% reduces the size of the bckg-image to 70%
+			background: no-repeat hsl(0, 0%, 80%) center/70% $minus;
+
+			&:hover,
+			&:focus {
+				background-color: lighten($color: hsl(0, 0%, 80%), $amount: 8);
+			}
+		}
+
+		--rad: 3px;
+
+		.add {
+			bottom: 1.2em;
+			right: -1.7em;
+
+			background-image: $plus;
+			border-bottom: 1px solid grey;
+			border-radius: var(--rad) var(--rad) 0 0;
+		}
+
+		.remove {
+			bottom: 0;
+			right: -1.7em;
+
+			border-top: 1px solid grey;
+			border-radius: 0 0 var(--rad) var(--rad);
+		}
 	}
 }

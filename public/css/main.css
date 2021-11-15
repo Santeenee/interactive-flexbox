@@ -178,6 +178,7 @@ section {
   border-bottom: 6px solid rgba(255, 170, 0, 0.7);
 }
 .container-input input[type=number] {
+  text-align: center;
   font-size: 1rem;
   padding: 0.3rem 0.5rem;
   border-radius: 0 0 0.3rem 0.3rem;
@@ -185,11 +186,39 @@ section {
   border: 2px solid #616161;
 }
 .container-input input[type=number]::-webkit-inner-spin-button, .container-input input[type=number]::-webkit-outer-spin-button {
-  opacity: 1;
-  cursor: pointer;
+  display: none;
 }
 .container-input > div {
   margin-bottom: 1rem;
+  position: relative;
+  --rad: 3px;
+}
+.container-input > div .add,
+.container-input > div .remove {
+  display: inline-block;
+  position: absolute;
+  min-width: 1.4em;
+  min-height: 1.35em;
+  cursor: pointer;
+  background: no-repeat #cccccc center/70% url(../assets/remove_black_24dp.svg);
+}
+.container-input > div .add:hover, .container-input > div .add:focus,
+.container-input > div .remove:hover,
+.container-input > div .remove:focus {
+  background-color: #e0e0e0;
+}
+.container-input > div .add {
+  bottom: 1.2em;
+  right: -1.7em;
+  background-image: url(../assets/add_black_24dp.svg);
+  border-bottom: 1px solid grey;
+  border-radius: var(--rad) var(--rad) 0 0;
+}
+.container-input > div .remove {
+  bottom: 0;
+  right: -1.7em;
+  border-top: 1px solid grey;
+  border-radius: 0 0 var(--rad) var(--rad);
 }
 
 footer {

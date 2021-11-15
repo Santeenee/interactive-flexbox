@@ -304,6 +304,7 @@ footer a:hover {
   --some-percent: calc(var(--border-width) * 0.6);
   --left: calc(var(--border-width) * 0.3);
   --top: calc(var(--border-width) * -0.28);
+  --transition-time: 250ms;
   position: absolute;
   top: calc(-1 * var(--border-width));
   left: 0;
@@ -314,6 +315,7 @@ footer a:hover {
   border-right: var(--border-width) solid var(--octo-color);
   transform-origin: center left;
   transform: rotate(45deg);
+  transition: var(--transition-time);
 }
 
 .github-logo {
@@ -326,4 +328,16 @@ footer a:hover {
   height: var(--some-percent);
   aspect-ratio: 1;
   transform: rotate(-90deg);
+  transition: var(--transition-time);
+}
+
+.github-corner:hover,
+.github-corner:focus {
+  filter: drop-shadow(0 0 0.2em var(--octo-color));
+  transition: var(--transition-time);
+}
+.github-corner:hover .github-logo,
+.github-corner:focus .github-logo {
+  filter: drop-shadow(0 0 0.2em #3dcfff);
+  transition: var(--transition-time);
 }

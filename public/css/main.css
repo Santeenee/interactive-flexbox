@@ -367,6 +367,6 @@ footer a:hover {
 }
 .github-corner:hover .github-logo,
 .github-corner:focus .github-logo {
-  filter: drop-shadow(0 0 0.5em blue);
+  filter: drop-shadow(0 0 0.75em blue);
   transition: var(--transition-time);
 }

@@ -53,7 +53,7 @@ section {
   font-weight: 500;
 }
 
-.buttons button:not(.code-snippet) {
+.buttons button:not(.code-snippet, .add, .remove) {
   color: black;
   background: #67e0a1;
   border: none;
@@ -67,11 +67,11 @@ section {
       -ms-user-select: none;
           user-select: none;
 }
-.buttons button:hover:not(.code-snippet), .buttons button:focus:not(.code-snippet) {
+.buttons button:hover:not(.code-snippet, .add, .remove), .buttons button:focus:not(.code-snippet, .add, .remove) {
   border: 2px solid #616161;
   transition: none;
 }
-.buttons button:active:not(.code-snippet) {
+.buttons button:active:not(.code-snippet, .add, .remove) {
   transform: translate(0, 3px);
 }
 
@@ -161,7 +161,7 @@ section {
   justify-content: space-evenly;
   margin-bottom: 2rem;
   padding-top: 1rem;
-  gap: 1.5rem;
+  gap: 3rem;
 }
 .container-input label {
   display: block;
@@ -201,6 +201,8 @@ section {
   min-height: 1.35em;
   cursor: pointer;
   background: no-repeat #cccccc center/70% url(../assets/remove_black_24dp.svg);
+  border: none;
+  font-size: 1em;
 }
 .container-input > div .add:hover, .container-input > div .add:focus,
 .container-input > div .remove:hover,

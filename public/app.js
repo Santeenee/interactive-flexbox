@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll('button')
 const codeSnippets = document.querySelectorAll('.code-snippet')
 const inputs = document.querySelectorAll('input[type="number"]')
+const btnChangeValue = document.querySelectorAll('button.change-value')
 
 const flexBox = document.querySelectorAll('.flex-box')
 const innerBoxes = document.querySelectorAll('.inner-box')
@@ -18,6 +19,40 @@ const pTagPlatformDependent = document.querySelector('p#platformDependent')
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 */
 
+const changeValueInInputNumber = (btnClass0, i) => {
+	if (i === 0 || i === 1) i = 0
+	else if (i === 2 || i === 3) i = 1
+	else if (i === 4 || i === 5) i = 2
+	else console.log(`index out of something... [${i}]`)
+
+	//creating and firing the event 'input'
+	//which allows the innerBoxes to grow accordingly
+	//and the codeSnippet thing to work
+	const event = new Event('input', {
+		view: window,
+		bubbles: true,
+		cancelable: true,
+	})
+
+	if (btnClass0 === 'add') {
+		if (inputs[i].value != 99) {
+			inputs[i].value++
+			inputs[i].dispatchEvent(event)
+		} else {
+			inputs[i].value = 99
+		}
+	} else if (btnClass0 === 'remove') {
+		if (inputs[i].value != 1) {
+			inputs[i].value--
+			inputs[i].dispatchEvent(event)
+		} else {
+			inputs[i].value = 1
+		}
+	} else {
+		conosle.log(`wait what:\nclass:"${btnClass0}"\nindex:${i}\n`)
+	}
+}
+
 const changeParagraphForMacOsUsers = platform => {
 	console.log(`You are using this platform: "${platform}"`)
 	//
@@ -29,10 +64,13 @@ const changeParagraphForMacOsUsers = platform => {
 			'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
 		//
 	} else if (navigator.userAgentData) {
-		if (navigator.userAgentData.mobile /*seems like it works only on some android phones...*/ ||
-			platform.includes('iP')) {
-		//iPhone, iPad
-		pTagPlatformDependent.remove()
+		if (
+			navigator.userAgentData
+				.mobile /*seems like it works only on some android phones...*/ ||
+			platform.includes('iP')
+		) {
+			//iPhone, iPad
+			pTagPlatformDependent.remove()
 		}
 	}
 }
@@ -190,8 +228,13 @@ const chooseWhatToChange = btn => {
 			break
 
 		default:
-			if (!btnClass.contains('code-snippet'))
-				console.log(`wrong class... ${btnClass}`)
+			if (
+				!btnClass.contains('code-snippet') &&
+				!btnClass.contains('change-value') &&
+				!btnClass.contains('add') &&
+				!btnClass.contains('remove')
+			)
+				console.log(`wrong class... "${btnClass}"`)
 			break
 	}
 }
@@ -217,10 +260,38 @@ inputs.forEach(input => {
 	})
 })
 
+//copy to clipboard from code snippets button
 for (let i = 0; i < codeSnippets.length; i++) {
 	codeSnippets[i].addEventListener('click', () => {
 		copyToClipboard(codeSnippets[i], i)
 	})
+}
+
+//spin button thing that i do not understand completely. why meeeee
+for (let i = 0; i < btnChangeValue.length; i++) {
+	//keep var
+	var mouseDownID = -1 //Global ID of mouse down interval
+	const mouseDown = event => {
+		if (mouseDownID == -1)
+			//change value of mouseDownID prevent multimple loops!
+			mouseDownID = setInterval(action, 100 /*execute every 100ms*/)
+	}
+	const mouseUp = event => {
+		if (mouseDownID != -1) {
+			//Only stop if exists
+			clearInterval(mouseDownID)
+			mouseDownID = -1
+		}
+	}
+	const action = () => {
+		changeValueInInputNumber(btnChangeValue[i].classList[0], i)
+	}
+	//Assign events
+	btnChangeValue[i].addEventListener('mousedown', mouseDown)
+	btnChangeValue[i].addEventListener('mouseup', mouseUp)
+	//Also clear the interval when user leaves the window with mouse
+	btnChangeValue[i].addEventListener('mouseout', mouseUp)
+	btnChangeValue[i].addEventListener('click', action)
 }
 
 // -------------

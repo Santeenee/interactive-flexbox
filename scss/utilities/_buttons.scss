@@ -10,7 +10,7 @@
 	margin-bottom: 1rem;
 
 	//maledetto ":not()" che aumenti la specifity
-	button:not(.code-snippet) {
+	button:not(.code-snippet, .add, .remove) {
 		@extend %button;
 	}
 	button.combine-justify,

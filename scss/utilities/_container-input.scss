@@ -7,7 +7,7 @@
 	justify-content: space-evenly;
 	margin-bottom: 2rem;
 	padding-top: 1rem;
-	gap: 1.5rem;
+	gap: 3rem;
 
 	label {
 		display: block;
@@ -54,6 +54,9 @@
 
 			// /70% reduces the size of the bckg-image to 70%
 			background: no-repeat hsl(0, 0%, 80%) center/70% $minus;
+
+			border: none;
+			font-size: 1em;
 
 			&:hover,
 			&:focus {

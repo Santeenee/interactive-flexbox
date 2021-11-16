@@ -84,3 +84,13 @@
 		}
 	}
 }
+
+.animate-input {
+	animation: 500ms animateInput linear;
+}
+
+@keyframes animateInput {
+	50% {
+		background-color: hsla(191, 100%, 50%, 0.4);
+	}
+}

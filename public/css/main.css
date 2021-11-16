@@ -223,6 +223,22 @@ section {
   border-radius: 0 0 var(--rad) var(--rad);
 }
 
+.animate-input {
+  -webkit-animation: 500ms animateInput linear;
+          animation: 500ms animateInput linear;
+}
+
+@-webkit-keyframes animateInput {
+  50% {
+    background-color: rgba(0, 208, 255, 0.4);
+  }
+}
+
+@keyframes animateInput {
+  50% {
+    background-color: rgba(0, 208, 255, 0.4);
+  }
+}
 footer {
   min-height: 10vh;
   padding: 1rem;

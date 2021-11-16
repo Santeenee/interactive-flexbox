@@ -19,13 +19,23 @@ const pTagPlatformDependent = document.querySelector('p#platformDependent')
 ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 */
 
+const animateInput = i => {
+	if (!inputs[i].classList.contains('animate-input')) {
+		inputs[i].classList.add('animate-input')
+		//
+		inputs[i].addEventListener('animationend', () => {
+			inputs[i].classList.remove('animate-input')
+		})
+	}
+}
+
 const changeValueInInputNumber = (btnClass0, i) => {
 	if (i === 0 || i === 1) i = 0
 	else if (i === 2 || i === 3) i = 1
 	else if (i === 4 || i === 5) i = 2
-	else console.log(`index out of something... [${i}]`)
+	else console.log(`index out of something... i=${i}`)
 
-	//creating and firing the event 'input'
+	//creating and firing the event 'input' (with dispachEvent())
 	//which allows the innerBoxes to grow accordingly
 	//and the codeSnippet thing to work
 	const event = new Event('input', {
@@ -39,14 +49,16 @@ const changeValueInInputNumber = (btnClass0, i) => {
 			inputs[i].value++
 			inputs[i].dispatchEvent(event)
 		} else {
-			inputs[i].value = 99
+			animateInput(i)
+			inputs[i].value = 99 //remove after setting the animation thing
 		}
 	} else if (btnClass0 === 'remove') {
 		if (inputs[i].value != 1) {
 			inputs[i].value--
 			inputs[i].dispatchEvent(event)
 		} else {
-			inputs[i].value = 1
+			animateInput(i)
+			inputs[i].value = 1 //remove after setting the animation thing
 		}
 	} else {
 		conosle.log(`wait what:\nclass:"${btnClass0}"\nindex:${i}\n`)

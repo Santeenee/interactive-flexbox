@@ -288,9 +288,14 @@ for (let i = 0; i < btnChangeValue.length; i++) {
 	}
 	//Assign events
 	btnChangeValue[i].addEventListener('mousedown', mouseDown)
+	btnChangeValue[i].addEventListener('touchstart', mouseDown)
+
 	btnChangeValue[i].addEventListener('mouseup', mouseUp)
-	//Also clear the interval when user leaves the window with mouse
+	btnChangeValue[i].addEventListener('touchend', mouseUp)
+
 	btnChangeValue[i].addEventListener('mouseout', mouseUp)
+	// btnChangeValue[i].addEventListener('touchcancel', mouseUp)
+
 	btnChangeValue[i].addEventListener('click', action)
 }
 

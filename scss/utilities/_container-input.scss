@@ -7,7 +7,7 @@
 	justify-content: space-evenly;
 	margin-bottom: 2rem;
 	padding-top: 1rem;
-	gap: 3rem;
+	// gap: 3em;
 
 	label {
 		display: block;
@@ -28,7 +28,7 @@
 		text-align: center;
 		font-size: 1rem;
 		padding: 0.3rem 0.5rem;
-		border-radius: 0 0 0.3rem 0.3rem;
+		box-shadow: inset 0 0 5px rgb(172, 172, 172);
 		width: 86px;
 		border: 2px solid $gray;
 
@@ -39,7 +39,7 @@
 	}
 
 	& > div {
-		margin-bottom: 1rem;
+		margin: 0 3.4rem 1rem 3.4rem;
 		position: relative;
 
 		.add,
@@ -47,40 +47,57 @@
 			display: inline-block;
 			position: absolute;
 
-			min-width: 1.4em;
-			min-height: 1.35em;
+			--spin-width: 2.158em;
+			--spin-height: 2.158em;
+			min-width: var(--spin-width);
+			min-height: var(--spin-height);
 
 			cursor: pointer;
 
 			// /70% reduces the size of the bckg-image to 70%
-			background: no-repeat hsl(0, 0%, 80%) center/70% $minus;
+			background: no-repeat hsl(0, 0%, 90%) center/70% $minus;
 
 			border: none;
 			font-size: 1em;
 
 			&:hover,
-			&:focus {
-				background-color: lighten($color: hsl(0, 0%, 80%), $amount: 8);
+			&:focus-visible {
+				background-color: darken($color: hsl(0, 0%, 90%), $amount: 8);
+			}
+
+			&:active {
+				filter: invert(1);
+				background-color: grey;
 			}
 		}
 
-		--rad: 3px;
+		//no border-radius seems to look better
+		--rad: 0.3em;
+		--rad: 0em;
+		--border-color: hsl(0, 0%, 45%);
 
 		.add {
-			bottom: 1.2em;
-			right: -1.7em;
-
 			background-image: $plus;
-			border-bottom: 1px solid grey;
-			border-radius: var(--rad) var(--rad) 0 0;
+
+			// bottom: 1.2em;
+			// right: -1.7em;
+			bottom: 0;
+			right: calc(var(--spin-width) * -1);
+
+			// border-bottom: 1px solid var(--border-color);
+			// border-radius: var(--rad) var(--rad) 0 0;
+			border-radius: 0 var(--rad) var(--rad) 0;
 		}
 
 		.remove {
+			// bottom: 0;
+			// right: -1.7em;
 			bottom: 0;
-			right: -1.7em;
+			left: calc(var(--spin-width) * -1);
 
-			border-top: 1px solid grey;
-			border-radius: 0 0 var(--rad) var(--rad);
+			// border-top: 1px solid var(--border-color);
+			// border-radius: 0 0 var(--rad) var(--rad);
+			border-radius: var(--rad) 0 0 var(--rad);
 		}
 	}
 }

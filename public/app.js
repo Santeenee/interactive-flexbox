@@ -61,7 +61,7 @@ const changeValueInInputNumber = (btnClass0, i) => {
 			inputs[i].value = 1 //remove after setting the animation thing
 		}
 	} else {
-		conosle.log(`wait what:\nclass:"${btnClass0}"\nindex:${i}\n`)
+		console.log(`wait what:\nclass:"${btnClass0}"\nindex:${i}\n`)
 	}
 }
 

@@ -47,10 +47,12 @@
 			display: inline-block;
 			position: absolute;
 
-			--spin-width: 2.158em;
-			--spin-height: 2.158em;
-			min-width: var(--spin-width);
-			min-height: var(--spin-height);
+			//* with px values
+			--spin-width: 40.5px;
+			--spin-height: 40.5px;
+
+			min-width: var(--spin-width, 40.5px);
+			min-height: var(--spin-height, 40.5px);
 
 			cursor: pointer;
 
@@ -82,7 +84,7 @@
 			// bottom: 1.2em;
 			// right: -1.7em;
 			bottom: 0;
-			right: calc(var(--spin-width) * -1);
+			right: calc(var(--spin-width, 40.5px) * -1);
 
 			// border-bottom: 1px solid var(--border-color);
 			// border-radius: var(--rad) var(--rad) 0 0;
@@ -93,7 +95,7 @@
 			// bottom: 0;
 			// right: -1.7em;
 			bottom: 0;
-			left: calc(var(--spin-width) * -1);
+			left: calc(var(--spin-width, 40.5px) * -1);
 
 			// border-top: 1px solid var(--border-color);
 			// border-radius: 0 0 var(--rad) var(--rad);

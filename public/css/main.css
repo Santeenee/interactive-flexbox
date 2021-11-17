@@ -198,10 +198,10 @@ section {
 .container-input > div .remove {
   display: inline-block;
   position: absolute;
-  --spin-width: 2.158em;
-  --spin-height: 2.158em;
-  min-width: var(--spin-width);
-  min-height: var(--spin-height);
+  --spin-width: 40.5px;
+  --spin-height: 40.5px;
+  min-width: var(--spin-width, 40.5px);
+  min-height: var(--spin-height, 40.5px);
   cursor: pointer;
   background: no-repeat #e6e6e6 center/70% url(../assets/remove_black_24dp.svg);
   border: none;
@@ -220,12 +220,12 @@ section {
 .container-input > div .add {
   background-image: url(../assets/add_black_24dp.svg);
   bottom: 0;
-  right: calc(var(--spin-width) * -1);
+  right: calc(var(--spin-width, 40.5px) * -1);
   border-radius: 0 var(--rad) var(--rad) 0;
 }
 .container-input > div .remove {
   bottom: 0;
-  left: calc(var(--spin-width) * -1);
+  left: calc(var(--spin-width, 40.5px) * -1);
   border-radius: var(--rad) 0 0 var(--rad);
 }
 

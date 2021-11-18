@@ -55,6 +55,8 @@
 			min-height: var(--spin-height, 40.5px);
 
 			cursor: pointer;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			-webkit-tap-highlight-color: transparent;
 
 			// /70% reduces the size of the bckg-image to 70%
 			background: no-repeat hsl(0, 0%, 90%) center/70% $minus;

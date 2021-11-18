@@ -35,7 +35,7 @@ const changeValueInInputNumber = (btnClass0, i) => {
 	else if (i === 4 || i === 5) i = 2
 	else console.log(`index out of something... i=${i}`)
 
-	//creating and firing the event 'input' (with dispachEvent())
+	//creating (and firing the event 'input' with dispachEvent())
 	//which allows the innerBoxes to grow accordingly
 	//and the codeSnippet thing to work
 	const event = new Event('input', {
@@ -50,7 +50,7 @@ const changeValueInInputNumber = (btnClass0, i) => {
 			inputs[i].dispatchEvent(event)
 		} else {
 			animateInput(i)
-			inputs[i].value = 99 //remove after setting the animation thing
+			// inputs[i].value = 99 //remove after setting the animation thing
 		}
 	} else if (btnClass0 === 'remove') {
 		if (inputs[i].value != 1) {
@@ -58,7 +58,7 @@ const changeValueInInputNumber = (btnClass0, i) => {
 			inputs[i].dispatchEvent(event)
 		} else {
 			animateInput(i)
-			inputs[i].value = 1 //remove after setting the animation thing
+			// inputs[i].value = 1 //remove after setting the animation thing
 		}
 	} else {
 		console.log(`wait what:\nclass:"${btnClass0}"\nindex:${i}\n`)

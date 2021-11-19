@@ -14,5 +14,6 @@
 - [x] polish JS (kinda done)
 - [x] add percentages below last flexBox showing size of 'grown' innerBoxes
 - [ ] clean that mess of a JS file
+- [ ] use optional chaining(.?)
 - [ ] funky ::selection
 - [ ] [Add favicon](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)

@@ -50,7 +50,7 @@ const changeValueInInputNumber = (btnClass0, i) => {
 			inputs[i].dispatchEvent(event)
 		} else {
 			animateInput(i)
-			// inputs[i].value = 99 //remove after setting the animation thing
+			// inputs[i].value = 99
 		}
 	} else if (btnClass0 === 'remove') {
 		if (inputs[i].value != 1) {
@@ -58,7 +58,7 @@ const changeValueInInputNumber = (btnClass0, i) => {
 			inputs[i].dispatchEvent(event)
 		} else {
 			animateInput(i)
-			// inputs[i].value = 1 //remove after setting the animation thing
+			// inputs[i].value = 1
 		}
 	} else {
 		console.log(`wait what:\nclass:"${btnClass0}"\nindex:${i}\n`)
@@ -117,11 +117,12 @@ const checkPlatform = () => {
 const animateSpan = i => {
 	if (!spanCopied[i].classList.contains('animate')) {
 		spanCopied[i].classList.add('animate')
+		//
 		spanCopied[i].addEventListener('animationend', () => {
 			spanCopied[i].classList.remove('animate')
 			//if an error is thrown reset the innerText to 'Copied!'
 			if (spanCopied[i].innerText.includes('Error')) {
-				console.log('includes "Error"')
+				console.log(`${i + 1}° span includes "Error"`)
 				spanCopied[i].innerText = 'Copied!'
 				spanCopied[i].style.color = 'green'
 			}
@@ -133,9 +134,8 @@ const changeCodeSnippet = (count, btnId, btnClass) => {
 	//
 	if (btnClass === 'input-number') {
 		let inputValue = inputs[count].value
-		if (inputValue == '') {
-			inputValue = 1
-		}
+		if (inputValue == '') inputValue = 1
+
 		codeSnippets[4].innerText = `flex-grow: ${inputValue};`
 	} else {
 		codeSnippets[count].innerText = `${btnClass}: ${btnId};`
@@ -148,28 +148,26 @@ const changeCodeSnippet = (count, btnId, btnClass) => {
 }
 
 const copyToClipboard = (codeSnippet, i) => {
-	if (!navigator.clipboard) {
-		// Clipboard API not available
-		codeSnippet.select()
-		document.execCommand('copy')
-		animateSpan(i)
-	} else {
+	if (navigator.clipboard) {
 		navigator.clipboard
 			.writeText(codeSnippet.innerText)
 			.then(() => {
-				//lol
-				//throw new Error()
 				console.log(`[${codeSnippet.innerText}] copied to clipboard!`)
 				animateSpan(i)
 			})
 			.catch(err => {
-				console.log('Something went wrong', err)
+				console.log('Coping text to clipboard failed:\n', err)
 				//spanCopied[i].style.right = '-9.5rem'
 				spanCopied[i].style.backgroundColor = 'hsla(0, 0%, 100%, 50%)'
 				spanCopied[i].innerText = 'Error'
 				spanCopied[i].style.color = 'hsl(0 100% 30%)'
 				animateSpan(i)
 			})
+	} else {
+		// Clipboard API not available
+		codeSnippet.select()
+		document.execCommand('copy')
+		animateSpan(i)
 	}
 }
 
@@ -188,11 +186,13 @@ const changeFlexboxProperty = (btnId, count, flexProperty, whatDiv) => {
 			innerBoxes[i].style.flexGrow = inputs[i].value
 		}
 	} else {
-		console.log('we have a problem here...')
+		console.log(
+			`the var whatDiv -> "${whatDiv}" doesn't match the required values`
+		)
 	}
 }
 
-//this also handles input number
+//*this function handles button and input number actions
 const chooseWhatToChange = btn => {
 	let btnId = btn.id
 	let btnClass = btn.classList
@@ -214,26 +214,28 @@ const chooseWhatToChange = btn => {
 			break
 
 		case 'align-items':
-			if (!btnClass.contains('combine')) {
-				changeFlexboxProperty(btnId, 2, 'alignItems', 'parent')
-				changeCodeSnippet(2, btnId, btnClass)
-			} else {
+			if (btnClass.contains('combine')) {
 				changeFlexboxProperty(btnId, 3, 'alignItems', 'parent')
 				changeCodeSnippet(3, btnId, btnClass[0])
+			} else {
+				changeFlexboxProperty(btnId, 2, 'alignItems', 'parent')
+				changeCodeSnippet(2, btnId, btnClass)
 			}
 			break
 
 		case 'input-number':
 			changeFlexboxProperty(btnId, 4, 'flexGrow', 'child')
 
-			//this works
+			//*this works
 			for (let j = 1; j < 4; j++) {
+				//if last char of btnId string matches J value
 				if (parseInt(btnId[btnId.length - 1]) === j) {
+					//then
 					changeCodeSnippet(j - 1, btnId, btnClass[0])
 				}
 			}
 
-			//this works too
+			//*this works too
 			// if (btnId === 'numberGrow1') changeCodeSnippet(0, btnId, btnClass[0])
 			// else if (btnId === 'numberGrow2') changeCodeSnippet(1, btnId, btnClass[0])
 			// else if (btnId === 'numberGrow3') changeCodeSnippet(2, btnId, btnClass[0])
@@ -246,7 +248,9 @@ const chooseWhatToChange = btn => {
 				!btnClass.contains('add') &&
 				!btnClass.contains('remove')
 			)
-				console.log(`wrong class... "${btnClass}"`)
+				console.log(
+					`wrong class -> "${btnClass}" chooseWhatToChange() doesn't know what to do...`
+				)
 			break
 	}
 }

@@ -10,6 +10,8 @@ const spanCopied = document.querySelectorAll('.copied')
 
 const pTagPlatformDependent = document.querySelector('p#platformDependent')
 
+const spansMeasure = document.querySelectorAll('.span-measure')
+
 /*
 ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
 ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
@@ -283,7 +285,7 @@ for (let i = 0; i < codeSnippets.length; i++) {
 	})
 }
 
-//spin button thing that i do not understand completely. why meeeee
+//*spin button thing
 for (let i = 0; i < btnChangeValue.length; i++) {
 	//keep var
 	var mouseDownID = -1 //Global ID of mouse down interval
@@ -315,8 +317,42 @@ for (let i = 0; i < btnChangeValue.length; i++) {
 	btnChangeValue[i].addEventListener('click', action)
 }
 
-// -------------
-// function call
-// -------------
+//*last flexbox grow measure % thing
+document.addEventListener('DOMContentLoaded', () => {
+	const innerBoxesGrow = document.querySelectorAll('.inner-box-grow')
+
+	let observer = new ResizeObserver(measureWidth)
+	innerBoxesGrow.forEach(innerBox => {
+		observer.observe(innerBox)
+	})
+})
+
+//'entries' are all the elements that are being watched
+//by the Resize Observer
+const measureWidth = entries => {
+	let totalWidth = 0
+	let innerWidth = 0
+	let percentage = 0
+
+	for (let i = 0; i < entries.length; i++) {
+		totalWidth += parseInt(entries[i].target.offsetWidth)
+
+		//if totalWidth is actually 'complete'
+		//than compute percentage for every span
+		if (i === 2) {
+			for (let j = 0; j < 3; j++) {
+				innerWidth = entries[j].target.offsetWidth
+				percentage = Math.round((innerWidth * 100) / totalWidth)
+				spansMeasure[j].innerText = percentage + '%'
+			}
+		}
+
+		spansMeasure[i].style.width = entries[i].target.offsetWidth + 'px'
+	}
+}
+
+//  -------------
+//* function call
+//  -------------
 
 checkPlatform()

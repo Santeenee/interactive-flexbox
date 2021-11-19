@@ -1,62 +1,63 @@
-@use "../abstracts/variables" as *;
+@use '../abstracts/variables' as *;
 
 .flex-box {
-  display: flex;
+	display: flex;
 
-  box-shadow: 0 0 0 2px black;
-  min-height: 15rem;
-  margin-bottom: 1rem;
+	box-shadow: 0 0 0 0.1em black;
+	min-height: 15rem;
+	margin-bottom: 1rem;
 
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .first {
-    background: $firstBox;
-  }
-  .second {
-    background: $secondBox;
-  }
-  .third {
-    background: $thirdBox;
-  }
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.first {
+		background: $firstBox;
+	}
+	.second {
+		background: $secondBox;
+	}
+	.third {
+		background: $thirdBox;
+	}
 }
 
 .flex-box-column {
-  flex-flow: column nowrap;
-  div {
-    flex: 1 1 0;
-  }
+	flex-flow: column nowrap;
+	div {
+		flex: 1 1 0;
+	}
 }
 
 .flex-box-row {
-  flex-flow: row nowrap;
-  div {
-    min-height: 5rem;
-    min-width: 7rem;
+	flex-flow: row nowrap;
+	justify-content: space-evenly;
+	align-items: center;
 
-    @media (max-width: 30rem) {
-      min-width: 4rem;
-      min-height: 4rem;
-    }
-  }
-  justify-content: space-evenly;
-  align-items: center;
+	div {
+		min-height: 5rem;
+		min-width: 7rem;
+
+		@media (max-width: 30rem) {
+			min-width: 4rem;
+			min-height: 4rem;
+		}
+	}
 }
 
 .flex-box-align-items {
-  align-items: stretch;
+	align-items: stretch;
 }
 
 .flex-box-combine {
-  align-items: center;
+	align-items: center;
 }
 
 .flex-box-grow {
-  flex-flow: row nowrap;
+	flex-flow: row nowrap;
 
-  div {
-    flex-grow: 1;
-  }
+	div {
+		flex-grow: 1;
+	}
 }

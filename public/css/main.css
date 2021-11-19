@@ -77,7 +77,7 @@ section {
 
 .flex-box {
   display: flex;
-  box-shadow: 0 0 0 2px black;
+  box-shadow: 0 0 0 0.1em black;
   min-height: 15rem;
   margin-bottom: 1rem;
 }
@@ -395,4 +395,31 @@ footer a:hover {
 .github-corner:focus .github-logo {
   filter: drop-shadow(0 0 0.75em blue);
   transition: var(--transition-time);
+}
+
+.measures {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.measures > span {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background-color: rgba(255, 119, 51, 0.7);
+  border-top: none;
+  border-bottom: none;
+  flex: 1 1 auto;
+}
+.measures > span:first-child {
+  background-color: rgba(255, 51, 51, 0.7);
+}
+.measures > span:last-child {
+  background-color: rgba(255, 187, 51, 0.7);
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+  box-shadow: none;
 }

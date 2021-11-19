@@ -1,0 +1,30 @@
+@use '../../scss/abstracts/variables' as *;
+
+.measures {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 2rem;
+
+	> span {
+		height: max-content;
+		background-color: lighten($secondBox, 10);
+		border-top: none;
+		border-bottom: none;
+
+		//with flex: 1 1 0; i can't change the width from JS
+		flex: 1 1 auto;
+
+		&:first-child {
+			background-color: lighten($firstBox, 10);
+		}
+		&:last-child {
+			background-color: lighten($thirdBox, 10);
+		}
+	}
+}
+
+.no-margin-bottom {
+	margin-bottom: 0;
+	box-shadow: none;
+}

@@ -161,6 +161,7 @@ section {
   justify-content: space-evenly;
   margin-bottom: 2rem;
   padding-top: 1rem;
+  gap: 1.5em;
 }
 .container-input label {
   display: block;
@@ -187,17 +188,15 @@ section {
 .container-input input[type=number]::-webkit-inner-spin-button, .container-input input[type=number]::-webkit-outer-spin-button {
   display: none;
 }
-.container-input > div {
-  margin: 0 3.4rem 1rem 3.4rem;
-  position: relative;
-  --rad: 0.3em;
-  --rad: 0em;
-  --border-color: hsl(0, 0%, 45%);
+.container-input .flex-stretch {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-flow: row nowrap;
 }
-.container-input > div .add,
-.container-input > div .remove {
+.container-input .add,
+.container-input .remove {
   display: inline-block;
-  position: absolute;
   --spin-width: 40.5px;
   --spin-height: 40.5px;
   min-width: var(--spin-width, 40.5px);
@@ -209,26 +208,18 @@ section {
   border: none;
   font-size: 1em;
 }
-.container-input > div .add:hover, .container-input > div .add:focus-visible,
-.container-input > div .remove:hover,
-.container-input > div .remove:focus-visible {
+.container-input .add:hover, .container-input .add:focus-visible,
+.container-input .remove:hover,
+.container-input .remove:focus-visible {
   background-color: #d1d1d1;
 }
-.container-input > div .add:active,
-.container-input > div .remove:active {
+.container-input .add:active,
+.container-input .remove:active {
   filter: invert(1);
   background-color: grey;
 }
-.container-input > div .add {
+.container-input .add {
   background-image: url(../assets/add_black_24dp.svg);
-  bottom: 0;
-  right: calc(var(--spin-width, 40.5px) * -1);
-  border-radius: 0 var(--rad) var(--rad) 0;
-}
-.container-input > div .remove {
-  bottom: 0;
-  left: calc(var(--spin-width, 40.5px) * -1);
-  border-radius: var(--rad) 0 0 var(--rad);
 }
 
 .animate-input {

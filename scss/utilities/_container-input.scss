@@ -7,7 +7,7 @@
 	justify-content: space-evenly;
 	margin-bottom: 2rem;
 	padding-top: 1rem;
-	// gap: 3em;
+	gap: 1.5em;
 
 	label {
 		display: block;
@@ -29,6 +29,7 @@
 		font-size: 1rem;
 		padding: 0.3rem 0.5rem;
 		box-shadow: inset 0 0 5px rgb(172, 172, 172);
+		//maybe width is better??
 		width: 86px;
 		border: 2px solid $gray;
 
@@ -38,71 +39,48 @@
 		}
 	}
 
-	& > div {
-		margin: 0 3.4rem 1rem 3.4rem;
-		position: relative;
+	.flex-stretch {
+		display: flex;
+		//⬇not necessary⬇
+		align-items: stretch;
+		justify-content: stretch;
+		flex-flow: row nowrap;
+	}
 
-		.add,
-		.remove {
-			display: inline-block;
-			position: absolute;
+	.add,
+	.remove {
+		display: inline-block;
 
-			//* with px values
-			--spin-width: 40.5px;
-			--spin-height: 40.5px;
+		// with px values
+		--spin-width: 40.5px;
+		--spin-height: 40.5px;
 
-			min-width: var(--spin-width, 40.5px);
-			min-height: var(--spin-height, 40.5px);
+		min-width: var(--spin-width, 40.5px);
+		min-height: var(--spin-height, 40.5px);
 
-			cursor: pointer;
-			-webkit-tap-highlight-color: rgba(0,0,0,0);
-			-webkit-tap-highlight-color: transparent;
+		cursor: pointer;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		-webkit-tap-highlight-color: transparent;
 
-			// /70% reduces the size of the bckg-image to 70%
-			background: no-repeat hsl(0, 0%, 90%) center/70% $minus;
+		// /70% reduces the size of the bckg-image to 70%
+		background: no-repeat hsl(0, 0%, 90%) center/70% $minus;
 
-			border: none;
-			font-size: 1em;
+		border: none;
+		font-size: 1em;
 
-			&:hover,
-			&:focus-visible {
-				background-color: darken($color: hsl(0, 0%, 90%), $amount: 8);
-			}
-
-			&:active {
-				filter: invert(1);
-				background-color: grey;
-			}
+		&:hover,
+		&:focus-visible {
+			background-color: darken($color: hsl(0, 0%, 90%), $amount: 8);
 		}
 
-		//no border-radius seems to look better
-		--rad: 0.3em;
-		--rad: 0em;
-		--border-color: hsl(0, 0%, 45%);
-
-		.add {
-			background-image: $plus;
-
-			// bottom: 1.2em;
-			// right: -1.7em;
-			bottom: 0;
-			right: calc(var(--spin-width, 40.5px) * -1);
-
-			// border-bottom: 1px solid var(--border-color);
-			// border-radius: var(--rad) var(--rad) 0 0;
-			border-radius: 0 var(--rad) var(--rad) 0;
+		&:active {
+			filter: invert(1);
+			background-color: grey;
 		}
+	}
 
-		.remove {
-			// bottom: 0;
-			// right: -1.7em;
-			bottom: 0;
-			left: calc(var(--spin-width, 40.5px) * -1);
-
-			// border-top: 1px solid var(--border-color);
-			// border-radius: 0 0 var(--rad) var(--rad);
-			border-radius: var(--rad) 0 0 var(--rad);
-		}
+	.add {
+		background-image: $plus;
 	}
 }
 

@@ -13,6 +13,8 @@
 - [x] animation when value is either 1 or 99
 - [x] polish JS (kinda done)
 - [x] add percentages below last flexBox showing size of 'grown' innerBoxes
+- [x] fix iOS browser issues like user-select, border-radius input-number, box-shadow in input-number...
+- [ ] change main margin-left-right in larger screen-sizes
 - [ ] clean that mess of a JS file
 - [ ] use optional chaining(.?)
 - [ ] funky ::selection

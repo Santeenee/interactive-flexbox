@@ -4,7 +4,7 @@
 	--some-percent: calc(var(--border-width) * 0.6);
 	--left: calc(var(--border-width) * 0.3);
 	--top: calc(var(--border-width) * -0.28);
-	--transition-time: 250ms;
+	--transition-time: 200ms;
 
 	position: absolute;
 	top: calc(-1 * var(--border-width));
@@ -42,11 +42,11 @@
 
 .github-corner:hover,
 .github-corner:focus {
-	filter: drop-shadow(0 0 0.2em var(--octo-color));
+	border-right: var(--border-width) solid transparent;
 	transition: var(--transition-time);
 
 	.github-logo {
-		filter: drop-shadow(0 0 0.75em blue);
+		fill: black;
 		transition: var(--transition-time);
 	}
 }

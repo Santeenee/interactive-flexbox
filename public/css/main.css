@@ -75,6 +75,57 @@ section {
   transform: translate(0, 3px);
 }
 
+::-moz-selection {
+  background-color: #67e0a1;
+  color: black;
+}
+
+::selection {
+  background-color: #67e0a1;
+  color: black;
+}
+
+h1::-moz-selection {
+  background-color: unset;
+  text-shadow: 0.2rem 0.2rem #67e0a1;
+}
+
+h1::selection {
+  background-color: unset;
+  text-shadow: 0.2rem 0.2rem #67e0a1;
+}
+
+p::-moz-selection, b::-moz-selection {
+  background-color: #67e0a1;
+  color: black;
+}
+
+p::selection,
+b::selection {
+  background-color: #67e0a1;
+  color: black;
+}
+
+.justify-content-section::-moz-selection {
+  background-color: red;
+  color: black;
+}
+
+.justify-content-section::selection {
+  background-color: red;
+  color: black;
+}
+
+#align-items-section::-moz-selection {
+  background-color: red;
+  color: black;
+}
+
+#align-items-section::selection {
+  background-color: red;
+  color: black;
+}
+
 .flex-box {
   display: flex;
   box-shadow: 0 0 0 0.1em black;

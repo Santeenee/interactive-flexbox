@@ -75,7 +75,7 @@ const changeParagraphForMacOsUsers = platform => {
 		platform.toLowerCase().includes('mac')
 	) {
 		pTagPlatformDependent.innerHTML =
-			'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate through this website, confirm a choice with <b>ENTER</b>'
+			'Use <b>TAB</b> or <b>OPTION+TAB</b> to navigate this website, confirm a choice with <b>ENTER</b>'
 		//
 	} else if (navigator.userAgentData) {
 		if (
@@ -90,7 +90,7 @@ const changeParagraphForMacOsUsers = platform => {
 }
 
 const checkPlatform = () => {
-	//
+	// ??
 	if (
 		navigator.userAgentData &&
 		navigator.userAgentData.platform != '' &&
@@ -355,4 +355,5 @@ const measureWidth = entries => {
 //* function call
 //  -------------
 
-checkPlatform()
+// it is written poorly, it isn't reliable
+//checkPlatform()

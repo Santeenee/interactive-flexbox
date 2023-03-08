@@ -7,3 +7,7 @@
 Learning Flexbox is now easy and fun!
 
 [Click here to try](https://santeenee-flexbox.netlify.app)
+
+This is an old project of mine. I built it because I thought it was a fun way to play around with JavaScript and SCSS,
+
+No spaghetti code here ( ͠° ͟ʖ ͡°)
